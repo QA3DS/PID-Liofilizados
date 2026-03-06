@@ -159,7 +159,68 @@ Atributos a evaluar:
 
 ---
 
-## 6. Checklist de tareas
+## 6. Análisis cinético y estadístico — Dataset compilado Exp1–Exp3
+
+> **Estado:** ✅ Completado — Marzo 2026
+> **Fuente:** `analisis_experimentos_compilado.ipynb` · `resultados_clave.md`
+> **Metodología detallada:** [`docs/metodologia-estadistica.md`](../metodologia-estadistica.md)
+
+### 6.1 Dataset
+
+270 observaciones (261 válidas) de diseño factorial balanceado **3 pretratamientos × 3 repeticiones × 3 meses × 10 tiempos (6–96h)**.
+
+### 6.2 Pérdida de peso a tiempo de estabilización
+
+| Pretratamiento | Pérdida @ 36h (media ± SD) | Pérdida @ 96h (media ± SD) |
+|---|---|---|
+| FRESCO | 91.84% ± 0.93% | 92.24% ± 1.12% |
+| CONGELADO | 91.96% ± 0.37% | 92.14% ± 0.46% |
+| ULTRACONGELADO | 91.62% ± 1.02% | 92.11% ± 0.70% |
+
+### 6.3 Parámetros del Modelo de Page — `MR(t) = exp(−k·tⁿ)`
+
+| Pretratamiento | k | n | R² | RMSE | Interpretación |
+|---|---|---|---|---|---|
+| FRESCO | 0.2564 | 0.6074 | 0.764 | 0.0728 | Velocidad inicial alta; mayor variabilidad |
+| CONGELADO | 0.0869 | 0.8780 | 0.911 | 0.0633 | Cinética predecible |
+| ULTRACONGELADO | 0.1031 | 0.8455 | 0.924 | 0.0536 | Mejor ajuste del modelo |
+
+> FRESCO presenta k ≈ 3× mayor que los pretratamientos con congelado previo: seca más rápido al inicio pero con mayor variabilidad entre repeticiones (R²=0.764 vs >0.91). El pre-congelado homogeniza la estructura celular del ruibarbo.
+
+### 6.4 Análisis estadístico — Kruskal-Wallis por tiempo
+
+| Tiempo | H | p-valor | Conclusión |
+|---|---|---|---|
+| 24h | 15.633 | **0.0004 (\*\*\*)** | FRESCO seca significativamente más rápido |
+| 36h | 1.334 | 0.5131 (ns) | Los tres pretratamientos son equivalentes |
+| 48h | 3.756 | 0.1529 (ns) | Los tres pretratamientos son equivalentes |
+
+**ANOVA Tipo II** (pretratamiento + tiempo + bloque mes): R² = 0.922
+- Pretratamiento: F=24.34, p<0.0001 ✅
+- Tiempo: F=318.48, p<0.0001 ✅
+- Bloque mes: p=0.125 ns → **resultados reproducibles entre los 3 experimentos**
+
+### 6.5 Tiempo óptimo de liofilización (criterio Δ relativo ≤ 1%)
+
+| Pretratamiento | Tiempo óptimo (dataset compilado) | Pérdida media |
+|---|---|---|
+| FRESCO | 72h | 92.11% |
+| CONGELADO | **48h** | 92.29% |
+| ULTRACONGELADO | 72h | 91.81% |
+
+> **Rango práctico recomendado: 36–48h.** El Exp3 mostró estabilización a 36h para una repetición; el dataset compilado (3 experimentos × 3 repeticiones) confirma plateau entre 48–72h, con CONGELADO como el pretratamiento más eficiente.
+
+### 6.6 Condiciones operacionales (RIFICOR LT-8)
+
+Las condiciones registradas (T° -41 a -35°C; P 1.1 a 2.4 mmHg) **no tienen efecto significativo** sobre la pérdida de peso dentro del rango de operación normal del equipo (Spearman: T° r=0.107 p=0.130; P° r=-0.124 p=0.079).
+
+### 6.7 Alerta de calidad de datos
+
+⚠️ 3 muestras de ENE-2025 (AC1, BC1, CC1) tienen anotación *"El código en cuaderno es de Fresco"*. Verificar etiquetado correcto en cuaderno de laboratorio antes de publicar.
+
+---
+
+## 7. Checklist de tareas
 
 **Análisis internos:**
 - [ ] Proteínas (Lowry) — Responsable: Cárcamo / Gutiérrez
@@ -175,24 +236,32 @@ Atributos a evaluar:
 - [ ] Recibir resultados y completar tablas
 
 **Análisis de datos:**
-- [ ] Completar dataset en `scripts/proyecto_liofilizados_data.ipynb`
-- [ ] Análisis estadístico formal (media, DS, n)
-- [ ] Análisis comparativo fresco vs. liofilizado
+- [x] Análisis cinético compilado (Exp1–Exp3) — Sección 6, marzo 2026
+- [x] Modelo de Page ajustado por pretratamiento
+- [x] Análisis estadístico Kruskal-Wallis + ANOVA Tipo II
+- [x] Detección de tiempo óptimo (plateau)
+- [ ] Completar dataset con análisis bioquímicos (Lowry, Antrona, Folch)
+- [ ] Análisis comparativo fresco vs. liofilizado (una vez completos análisis bioquímicos)
 - [ ] Preparar tablas y figuras para B1 y D2
 
 ---
 
-## 7. Archivos relacionados
+## 8. Archivos relacionados
 
 | Archivo | Descripción |
 |---|---|
+| `analisis_experimentos_compilado.ipynb` | Notebook análisis estadístico completo (Exp1–Exp3) |
+| `resultados_clave.md` | Síntesis de resultados del análisis compilado |
+| `docs/metodologia-estadistica.md` | Justificación estadística y matemática de los análisis |
+| `figuras/fig3_cinetica_curvas.png` | Curvas cinéticas medias ± SD (figura publicación) |
+| `figuras/fig4_modelo_page.png` | Ajuste Modelo de Page por pretratamiento |
 | `E:/Investigacion 24 Javi/.../actividad de agua/PLANILLA DE CONTROL.xlsx` | Datos aw in-house |
 | `scripts/proyecto_liofilizados_data.ipynb` | Framework de análisis en Python |
 | `Articulo Liof LUPA/Efecto de las condiciones de liofilizacion...pdf` | Referencia metodológica |
 
 ---
 
-## 8. Referencias
+## 9. Referencias
 
 - Lowry, O.H. et al. (1951). Protein measurement with the Folin phenol reagent. *J. Biol. Chem.*, 193(1), 265–275.
 - Folch, J. et al. (1957). A simple method for the isolation and purification of total lipides from animal tissues. *J. Biol. Chem.*, 226(1), 497–509.

@@ -355,10 +355,18 @@ Basándonos en nuestros experimentos con el RIFICOR LT-8 y ruibarbo de TDF:
 |---|---|---|
 | 0–12 h | Sublimación intensa (fase primaria) | ~68% |
 | 12–24 h | Sublimación activa | ~89% |
-| **24–36 h** | **Finalización de sublimación** | **~94–95%** |
-| 36–96 h | Meseta — sin cambios significativos | ~94% (sin variación) |
+| **24–36 h** | **Finalización de sublimación** | **~92–94%** |
+| **36–48 h** | **Meseta establecida — plateau** | **~92% (sin variación significativa)** |
+| 48–96 h | Meseta consolidada | ~92% (sin variación) |
 
-> **El tiempo óptimo de liofilización de ruibarbo en el RIFICOR LT-8 es de 36 horas.** A partir de ese punto, el producto ya alcanzó su humedad mínima y extender el tiempo no mejora el resultado.
+> **Tiempo recomendado de liofilización de ruibarbo:** entre **36 y 48 horas**. El análisis estadístico del dataset compilado (Exp1–Exp3, 261 observaciones) confirma que:
+> - Con pretratamiento **CONGELADO**, el plateau se estabiliza a las **48h** (pretratamiento recomendado por mayor predictibilidad y menor variabilidad entre ciclos).
+> - Con pretratamiento **FRESCO**, el plateau se estabiliza entre 48–72h con mayor variabilidad.
+> - A partir de las 36h, los tres pretratamientos son **estadísticamente equivalentes** en pérdida de peso (Kruskal-Wallis p>0.15).
+>
+> Para uso operacional con el RIFICOR LT-8, se recomienda programar ciclos de **48 horas** para garantizar la estabilización completa independientemente del pretratamiento utilizado.
+>
+> *Fuente: `analisis_experimentos_compilado.ipynb` — para la justificación estadística completa ver [`docs/metodologia-estadistica.md`](metodologia-estadistica.md)*
 
 **Cómo saber que el proceso terminó:**
 
@@ -372,14 +380,16 @@ El proceso está completo cuando:
 
 Al finalizar el proceso, el ruibarbo liofilizado debe tener estas características:
 
-| Parámetro | Valor esperado |
-|---|---|
-| % de humedad (en base húmeda) | ≤ 6% |
-| % de pérdida de peso | 93,5–95% |
-| Aspecto | Rígido, quebradizo, poroso |
-| Color | Rojo-rosado (conservado del producto fresco) |
-| Textura | Crujiente, se deshace al presionarlo |
-| Aroma | Característico del ruibarbo fresco (leve) |
+| Parámetro | Valor esperado | Fuente |
+|---|---|---|
+| % de humedad (en base húmeda) | ≤ 6% | Exp3 |
+| % de pérdida de peso | **91,5–92,5%** (media compilada ± SD < 1%) | Dataset Exp1–Exp3 (261 obs) |
+| Aspecto | Rígido, quebradizo, poroso | Visual |
+| Color | Rojo-rosado (conservado del producto fresco) | Visual |
+| Textura | Crujiente, se deshace al presionarlo | Táctil |
+| Aroma | Característico del ruibarbo fresco (leve) | Sensorial |
+
+> **Nota sobre los valores de pérdida de peso:** el análisis del dataset compilado (3 experimentos × 3 repeticiones) mostró que la pérdida de peso media se estabiliza en ~91.6–92.3% BH según pretratamiento, con desviación estándar ≤ 1.1%. Los tres pretratamientos son equivalentes estadísticamente a partir de las 36–48h (Kruskal-Wallis, p>0.15).
 
 **Si el producto no cumple estos criterios:**
 - Si está blando o flexible → probablemente le falta tiempo o el equipo no alcanzó la temperatura/vacío necesarios
@@ -607,6 +617,9 @@ El grupo de investigación QA3DS de la UTN FRTDF está disponible para asesorami
 - Giamportone, A.L. (2023). *Análisis del proceso de liofilizado aplicado a alimentos de producción local/regional en la provincia de Tierra del Fuego.* UTN FRTDF. Código PAPPTF0009884.
 - Orrego Alzate, C.E. (2008). *Congelación y liofilización de alimentos.* Universidad Nacional de Colombia.
 - Argentina.gob.ar (2024). *El "diamante negro" de la gastronomía ya se exporta desde Argentina.* Recuperado de https://www.argentina.gob.ar
+- **Análisis estadístico compilado (Exp1–Exp3):** Giamportone, A.L. (2026). *Análisis cinético y estadístico de experimentos de liofilización de ruibarbo — Dataset compilado.* Notebook `analisis_experimentos_compilado.ipynb`, Grupo QA3DS, UTN FRTDF.
+- **Modelo de Page:** Page, G.E. (1949). *Factors influencing the maximum rates of air drying shelled corn in thin layers.* M.S. Thesis, Purdue University; Midilli, A. et al. (2002). A new model for single-layer drying. *Drying Technology*, 20(7), 1503–1513.
+- **Metodología estadística completa:** [`docs/metodologia-estadistica.md`](metodologia-estadistica.md)
 
 ---
 
@@ -616,11 +629,11 @@ El grupo de investigación QA3DS de la UTN FRTDF está disponible para asesorami
 |---|---|---|
 | Cap. 1 — ¿Qué es la liofilización? | ✅ Completo | — |
 | Cap. 2 — Equipamiento necesario | ✅ Completo | — |
-| Cap. 3 — Proceso de liofilización del Ruibarbo | ✅ Completo | SOP-LIO-RUI-v1 |
+| Cap. 3 — Proceso de liofilización del Ruibarbo | ✅ Actualizado con análisis compilado (mar-2026) | SOP-LIO-RUI-v1 · `analisis_experimentos_compilado.ipynb` |
 | Cap. 4 — Análisis económico | 🔄 Borrador (faltan precios) | Estudio de Escalado + relevamiento |
 | Cap. 5 — Requisitos regulatorios | 🔄 Borrador (faltan detalles CAA) | Entregable A1 |
 | Cap. 6 — Casos de referencia | ✅ Completo | — |
-| Anexo A — Curvas | ⏳ Pendiente | Notebook Python (gráficos) |
+| Anexo A — Curvas | 🔄 Parcial — ver figuras `fig3_cinetica_curvas.png` y `fig4_modelo_page.png` | `analisis_experimentos_compilado.ipynb` |
 | Anexo B — Resultados analíticos | ⏳ Pendiente | Entregable A5 |
 | Anexo C — Ficha técnica | ⏳ Pendiente | Entregable A5 |
 
