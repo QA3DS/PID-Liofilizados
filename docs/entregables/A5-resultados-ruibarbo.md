@@ -1,6 +1,6 @@
 # A5 — Resultados Experimentales: Ruibarbo Liofilizado
 
-**Estado:** 🔄 En proceso — avance ~50%
+**Estado:** 🔄 En proceso — avance ~70%
 **Responsable:** Angélica Cárcamo · Facundo Gutiérrez · Matías Álvarez
 **Issue GitHub:** #5
 **Objetivo PID:** OE3
@@ -15,11 +15,32 @@ Este documento consolida los resultados analíticos que caracterizan el producto
 
 ## 2. Muestras analizadas
 
-| Muestra | Experimento | Tiempo liofilización | Origen |
-|---|---|---|---|
-| Ruibarbo fresco — Exp3 | Exp3 oct-nov 2024 | 0 h (control) | Estancia Viamonte |
-| Ruibarbo liofilizado — Exp3 | Exp3 oct-nov 2024 | 36 h (óptimo) | Estancia Viamonte |
-| Ruibarbo liofilizado — Exp4 | Exp4 (en proceso) | 36 h | A confirmar |
+### 2.1 Experimentos individuales
+
+| Muestra | Experimento | Fecha | Tiempo liofilización | Origen |
+|---|---|---|---|---|
+| Ruibarbo fresco — Exp1 | Exp1 | 4 dic 2023 | Punto único | Virginia Saldivia (RG, invernadero) |
+| Ruibarbo liofilizado — Exp2 | Exp2 | 20–24 may 2024 | 6–90 h (8 puntos) | Estancia Viamonte (exterior) |
+| Ruibarbo liofilizado — Exp3 | Exp3 | 28 oct – 4 nov 2024 | 12–96 h (8 puntos) | Estancia Viamonte (exterior) |
+| Ruibarbo liofilizado — Exp4 | Exp4 (en proceso) | — | A confirmar | A confirmar |
+
+### 2.2 Dataset compilado (análisis estadístico)
+
+El análisis estadístico compilado integra datos de **3 baterías experimentales** realizadas en distintos meses, con 3 pretratamientos cada una:
+
+| Mes (bloque) | Pretratamientos | Repeticiones | Tiempos | n obs |
+|---|---|---|---|---|
+| NOV-2024 | FRESCO, CONGELADO, ULTRACONGELADO | 3 × 3 | 10 (6–96h) | 90 |
+| ENE-2025 | FRESCO, CONGELADO, ULTRACONGELADO | 3 × 3 | 10 (6–96h) | 90 |
+| FEB-2025 | FRESCO, CONGELADO, ULTRACONGELADO | 3 × 3 | 10 (6–96h) | 90 |
+| **Total** | | | | **270 (261 válidas)** |
+
+**Pretratamientos:**
+- **FRESCO:** sin congelamiento previo — liofilización directa
+- **CONGELADO:** congelamiento a -18°C (freezer doméstico) antes de liofilizar
+- **ULTRACONGELADO:** congelamiento a -25°C o inferior antes de liofilizar
+
+**Fuente de datos:** `datos_experimentos_compilado/Registro de resultados - Proyecto Liofilizados (1).xlsx`
 
 ---
 
@@ -139,23 +160,42 @@ Atributos a evaluar:
 
 ## 5. Análisis comparativo
 
-### 5.1 Fresco vs. liofilizado
+### 5.1 Fresco vs. liofilizado — Pérdida de peso gravimétrica
 
-| Parámetro | Fresco | Liofilizado 36h | Retención (%) |
+Datos del dataset compilado (261 obs, 3 pretratamientos × 3 repeticiones × 3 meses):
+
+| Parámetro | Fresco (no pretratado) | Liofilizado 36h | Liofilizado 96h |
 |---|---|---|---|
-| Humedad (%) | 94.3–94.6 | ~5.5 | — |
-| Proteínas (g/100g) | — | — | — |
-| Lípidos (g/100g) | — | — | — |
-| Carbohidratos (g/100g) | — | — | — |
-| aw | — | — | — |
+| Pérdida de peso BH (%) | N/A | 91.84 ± 0.93 (FRESCO) | 92.24 ± 1.12 (FRESCO) |
+|  |  | 91.96 ± 0.37 (CONGELADO) | 92.14 ± 0.46 (CONGELADO) |
+|  |  | 91.62 ± 1.02 (ULTRACONGELADO) | 92.11 ± 0.70 (ULTRACONGELADO) |
+| Humedad fresca (% BH) | 94.3–94.6 | — | — |
+| Humedad producto final | — | ~5.5% (estimado) | ~5.5% (estimado) |
+| Rendimiento (g producto / 100g fresco) | — | ~8.0–8.4 g | ~7.8–8.0 g |
 
-### 5.2 Comparación entre formatos de corte
+> **Interpretación:** A las 36h los tres pretratamientos son estadísticamente equivalentes (Kruskal-Wallis p = 0.51). El rendimiento estimado del producto liofilizado es de ~5.7–8.4 g por cada 100 g de ruibarbo fresco.
 
-> ⏳ Pendiente — diseñar experimento comparativo
+### 5.2 Comparación entre pretratamientos — Cinética
 
-### 5.3 Comparación entre ecotipos (invernadero vs. exterior)
+| Parámetro | FRESCO | CONGELADO | ULTRACONGELADO |
+|---|---|---|---|
+| k (Page) | 0.2564 | 0.0869 | 0.1031 |
+| n (Page) | 0.6074 | 0.8780 | 0.8455 |
+| R² | 0.764 | 0.911 | 0.924 |
+| Velocidad inicial | **Alta** (k 3× mayor) | Moderada | Moderada |
+| Variabilidad | Mayor (SD 0.93–1.12%) | **Menor** (SD 0.37–0.46%) | Intermedia |
+| Tiempo plateau (Δ ≤ 1%) | 72h | **48h** | 72h |
+| Recomendación | Funcional pero menos predecible | **Recomendado** | Buen ajuste, mayor costo energético |
 
-> ⏳ Pendiente — diseñar experimento comparativo
+> **Conclusión:** CONGELADO (-18°C) es el pretratamiento recomendado: cinética predecible (R² = 0.911), menor variabilidad entre réplicas, y alcanza el plateau más rápido (48h).
+
+### 5.3 Comparación entre formatos de corte
+
+> ⏳ Pendiente — diseñar experimento comparativo (todos los experimentos usaron peciolos ~1 cm)
+
+### 5.4 Comparación entre ecotipos (invernadero vs. exterior)
+
+> ⏳ Pendiente — diseñar experimento comparativo. Exp1 (invernadero, V. Saldivia) y Exp2-3 (exterior, Estancia Viamonte) sugieren diferencias en turgencia y contenido de agua inicial, pero sin diseño factorial controlado.
 
 ---
 
