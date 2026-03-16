@@ -40,7 +40,7 @@ El análisis estadístico compilado integra datos de **3 baterías experimentale
 - **CONGELADO:** congelamiento a -18°C (freezer doméstico) antes de liofilizar
 - **ULTRACONGELADO:** congelamiento a -25°C o inferior antes de liofilizar
 
-**Fuente de datos:** `datos_experimentos_compilado/Registro de resultados - Proyecto Liofilizados (1).xlsx`
+**Fuente de datos:** `datos_experimentos_compilado/Registro de resultados - Proyecto Liofilizados - revisado.xlsx`
 
 ---
 
@@ -254,9 +254,9 @@ Datos del dataset compilado (261 obs, 3 pretratamientos × 3 repeticiones × 3 m
 
 Las condiciones registradas (T° -41 a -35°C; P 1.1 a 2.4 mmHg) **no tienen efecto significativo** sobre la pérdida de peso dentro del rango de operación normal del equipo (Spearman: T° r=0.107 p=0.130; P° r=-0.124 p=0.079).
 
-### 6.7 Alerta de calidad de datos
+### 6.7 Calidad de datos — Verificación de etiquetado
 
-⚠️ 3 muestras de ENE-2025 (AC1, BC1, CC1) tienen anotación *"El código en cuaderno es de Fresco"*. Verificar etiquetado correcto en cuaderno de laboratorio antes de publicar.
+✅ **RESUELTA (marzo 2026):** Las 3 muestras de ENE-2025 (AC1, BC1, CC1) que tenían anotación *"El código en cuaderno es de Fresco"* fueron verificadas contra el cuaderno de laboratorio. Conclusión: el código "Fresco" era un error de anotación en el cuaderno; la clasificación CONGELADO es correcta. Los datos se mantienen sin reclasificación. El archivo revisado incorpora esta aclaración en la columna OBSERVACIONES.
 
 ---
 

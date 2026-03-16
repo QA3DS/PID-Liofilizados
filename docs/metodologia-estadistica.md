@@ -3,7 +3,7 @@
 **Grupo:** QA3DS
 **Versión:** 1.0 (2026-03-04)
 **Autores:** Ariel Giamportone, con asistencia Claude
-**Fuente de datos:** `datos_experimentos_compilado/Registro de resultados - Proyecto Liofilizados (1).xlsx`
+**Fuente de datos:** `datos_experimentos_compilado/Registro de resultados - Proyecto Liofilizados - revisado.xlsx`
 
 ---
 
@@ -316,7 +316,7 @@ H₁: ρ_Spearman ≠ 0
 1. **Tamaño muestral por celda:** n = 9 por (pretratamiento × tiempo) es suficiente para tests no paramétricos pero limita la potencia para detectar efectos pequeños en ANOVA
 2. **Modelo de Page — R² de FRESCO:** el ajuste moderado (R² = 0.764) es una propiedad del sistema (mayor variabilidad de muestra fresca), no un artefacto metodológico
 3. **Datos faltantes en T° y P°:** 22–25% de missings limitan el análisis operacional; se documenta como limitación en la discusión
-4. **Alerta de calidad de datos:** 3 muestras (ENE25-AC1, ENE25-BC1, ENE25-CC1) tienen anotación "El código en cuaderno es de Fresco" — posible error de etiquetado de pretratamiento; verificar en cuaderno de laboratorio antes de publicar
+4. ~~**Alerta de calidad de datos:**~~ ✅ RESUELTA (marzo 2026) — 3 muestras (ENE25-AC1, ENE25-BC1, ENE25-CC1) verificadas contra cuaderno de laboratorio: el código "Fresco" era error de anotación, la clasificación CONGELADO es correcta. Datos corregidos en archivo revisado.
 5. **Generalización:** el análisis corresponde a ruibarbo de Estancia Viamonte (ecotipo exterior, peciolos ~1 cm); resultados pueden diferir para ecotipos de invernadero o formato diferente
 
 ---
