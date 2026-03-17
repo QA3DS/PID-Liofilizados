@@ -127,7 +127,7 @@ RMSE = sqrt( Σ(MR_obs - MR_pred)² / n )
 |---|---|---|---|---|---|
 | FRESCO | 0.2564 | 0.6074 | 0.764 | 0.0728 | Ajuste moderado; mayor variabilidad inherente |
 | CONGELADO | 0.0869 | 0.8780 | 0.911 | 0.0633 | Buen ajuste |
-| ULTRACONGELADO | 0.1031 | 0.8455 | 0.924 | 0.0536 | Buen ajuste |
+| ULTRACONGELADO | 0.1067 | 0.8323 | 0.924 | 0.0531 | Buen ajuste |
 
 **Nota sobre FRESCO:** El R² inferior (0.764 vs >0.91) no indica falla del modelo, sino mayor variabilidad intrínseca de la muestra fresca. Sin el pre-congelado, la estructura celular del ruibarbo es heterogénea entre repeticiones, lo que incrementa la dispersión de MR en los tiempos iniciales (6–18h). El modelo de Page sigue siendo apropiado; la variabilidad es una propiedad del sistema, no del modelo.
 
@@ -211,9 +211,9 @@ PERDIDA_PESO_FRAC ~ C(PRETRATAMIENTO) + C(HORAS) + C(MES_AÑO)
 
 donde `C(·)` indica variable categórica y MES_AÑO actúa como **factor de bloque** para controlar la variabilidad entre experimentos realizados en distintos meses.
 
-**R² del modelo:** 0.9220 — explica el 92.2% de la varianza total de la pérdida de peso.
+**R² del modelo:** 0.9230 — explica el 92.3% de la varianza total de la pérdida de peso.
 
-**Resultado del bloque temporal (mes):** p = 0.1248 (no significativo) → **los resultados son reproducibles entre los 3 experimentos** (NOV-2024, ENE-2025, FEB-2025).
+**Resultado del bloque temporal (mes):** p = 0.1005 (no significativo) → **los resultados son reproducibles entre los 3 experimentos** (NOV-2024, ENE-2025, FEB-2025).
 
 ### 4.5 Tamaño del efecto
 
@@ -225,7 +225,7 @@ Para ANOVA Tipo II se reporta **η² (eta cuadrado)**:
 
 Interpretación según Cohen (1988): η² < 0.01 = negligible; 0.01–0.06 = pequeño; 0.06–0.14 = mediano; > 0.14 = grande.
 
-El factor TIEMPO presenta F = 318.48 (p < 0.0001), confirmando que es el principal determinante de la pérdida de peso, con tamaño del efecto grande.
+El factor TIEMPO presenta F = 322.97 (p < 0.0001), confirmando que es el principal determinante de la pérdida de peso, con tamaño del efecto grande.
 
 ---
 
@@ -285,7 +285,7 @@ H₁: ρ_Spearman ≠ 0
 α = 0.05
 ```
 
-**Resultados:** T° (r = 0.107, p = 0.130) y P° (r = -0.124, p = 0.079) — ambas no significativas. Las condiciones operacionales del RIFICOR LT-8 no tienen efecto significativo sobre la pérdida de peso dentro del rango observado de operación.
+**Resultados:** T° (r = 0.118, p = 0.095) y P° (r = -0.131, p = 0.064) — ambas no significativas. Las condiciones operacionales del RIFICOR LT-8 no tienen efecto significativo sobre la pérdida de peso dentro del rango observado de operación.
 
 ---
 

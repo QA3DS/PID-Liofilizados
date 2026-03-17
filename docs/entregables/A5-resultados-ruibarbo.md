@@ -1,6 +1,6 @@
 # A5 — Resultados Experimentales: Ruibarbo Liofilizado
 
-**Estado:** 🔄 En proceso — avance ~70%
+**Estado:** 🔄 En proceso — avance ~75%
 **Responsable:** Angélica Cárcamo · Facundo Gutiérrez · Matías Álvarez
 **Issue GitHub:** #5
 **Objetivo PID:** OE3
@@ -179,15 +179,15 @@ Datos del dataset compilado (261 obs, 3 pretratamientos × 3 repeticiones × 3 m
 
 | Parámetro | FRESCO | CONGELADO | ULTRACONGELADO |
 |---|---|---|---|
-| k (Page) | 0.2564 | 0.0869 | 0.1031 |
-| n (Page) | 0.6074 | 0.8780 | 0.8455 |
+| k (Page) | 0.2564 | 0.0869 | 0.1067 |
+| n (Page) | 0.6074 | 0.8780 | 0.8323 |
 | R² | 0.764 | 0.911 | 0.924 |
 | Velocidad inicial | **Alta** (k 3× mayor) | Moderada | Moderada |
 | Variabilidad | Mayor (SD 0.93–1.12%) | **Menor** (SD 0.37–0.46%) | Intermedia |
-| Tiempo plateau (Δ ≤ 1%) | 72h | **48h** | 72h |
+| Tiempo plateau (Δ ≤ 1%) | 72h | **48h** | **48h** |
 | Recomendación | Funcional pero menos predecible | **Recomendado** | Buen ajuste, mayor costo energético |
 
-> **Conclusión:** CONGELADO (-18°C) es el pretratamiento recomendado: cinética predecible (R² = 0.911), menor variabilidad entre réplicas, y alcanza el plateau más rápido (48h).
+> **Conclusión:** CONGELADO (-18°C) es el pretratamiento recomendado: cinética predecible (R² = 0.911), menor variabilidad entre réplicas. Tanto CONGELADO como ULTRACONGELADO alcanzan el plateau a las 48h; CONGELADO es preferible por menor costo energético en la etapa de pre-congelado.
 
 ### 5.3 Comparación entre formatos de corte
 
@@ -223,7 +223,7 @@ Datos del dataset compilado (261 obs, 3 pretratamientos × 3 repeticiones × 3 m
 |---|---|---|---|---|---|
 | FRESCO | 0.2564 | 0.6074 | 0.764 | 0.0728 | Velocidad inicial alta; mayor variabilidad |
 | CONGELADO | 0.0869 | 0.8780 | 0.911 | 0.0633 | Cinética predecible |
-| ULTRACONGELADO | 0.1031 | 0.8455 | 0.924 | 0.0536 | Mejor ajuste del modelo |
+| ULTRACONGELADO | 0.1067 | 0.8323 | 0.924 | 0.0531 | Mejor ajuste del modelo |
 
 > FRESCO presenta k ≈ 3× mayor que los pretratamientos con congelado previo: seca más rápido al inicio pero con mayor variabilidad entre repeticiones (R²=0.764 vs >0.91). El pre-congelado homogeniza la estructura celular del ruibarbo.
 
@@ -233,12 +233,12 @@ Datos del dataset compilado (261 obs, 3 pretratamientos × 3 repeticiones × 3 m
 |---|---|---|---|
 | 24h | 15.633 | **0.0004 (\*\*\*)** | FRESCO seca significativamente más rápido |
 | 36h | 1.334 | 0.5131 (ns) | Los tres pretratamientos son equivalentes |
-| 48h | 3.756 | 0.1529 (ns) | Los tres pretratamientos son equivalentes |
+| 48h | 3.382 | 0.1843 (ns) | Los tres pretratamientos son equivalentes |
 
-**ANOVA Tipo II** (pretratamiento + tiempo + bloque mes): R² = 0.922
-- Pretratamiento: F=24.34, p<0.0001 ✅
-- Tiempo: F=318.48, p<0.0001 ✅
-- Bloque mes: p=0.125 ns → **resultados reproducibles entre los 3 experimentos**
+**ANOVA Tipo II** (pretratamiento + tiempo + bloque mes): R² = 0.923
+- Pretratamiento: F=25.18, p<0.0001 ✅
+- Tiempo: F=322.97, p<0.0001 ✅
+- Bloque mes: p=0.1005 ns → **resultados reproducibles entre los 3 experimentos**
 
 ### 6.5 Tiempo óptimo de liofilización (criterio Δ relativo ≤ 1%)
 
@@ -246,13 +246,13 @@ Datos del dataset compilado (261 obs, 3 pretratamientos × 3 repeticiones × 3 m
 |---|---|---|
 | FRESCO | 72h | 92.11% |
 | CONGELADO | **48h** | 92.29% |
-| ULTRACONGELADO | 72h | 91.81% |
+| ULTRACONGELADO | **48h** | 92.01% |
 
 > **Rango práctico recomendado: 36–48h.** El Exp3 mostró estabilización a 36h para una repetición; el dataset compilado (3 experimentos × 3 repeticiones) confirma plateau entre 48–72h, con CONGELADO como el pretratamiento más eficiente.
 
 ### 6.6 Condiciones operacionales (RIFICOR LT-8)
 
-Las condiciones registradas (T° -41 a -35°C; P 1.1 a 2.4 mmHg) **no tienen efecto significativo** sobre la pérdida de peso dentro del rango de operación normal del equipo (Spearman: T° r=0.107 p=0.130; P° r=-0.124 p=0.079).
+Las condiciones registradas (T° -41 a -35°C; P 1.1 a 2.4 mmHg) **no tienen efecto significativo** sobre la pérdida de peso dentro del rango de operación normal del equipo (Spearman: T° r=0.118 p=0.095; P° r=-0.131 p=0.064).
 
 ### 6.7 Calidad de datos — Verificación de etiquetado
 

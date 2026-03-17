@@ -66,12 +66,26 @@ El proyecto trabaja con **ruibarbo** (*Rheum rhabarbarum* L.) como matriz princi
 
 ### Resultados experimentales clave (Ruibarbo)
 
+**Dataset compilado:** 261 observaciones válidas (3 meses × 3 pretratamientos × 10 tiempos × ~3 réplicas)
+
 | Parámetro | Valor |
 |---|---|
 | Humedad fresca | 94.3–94.6% BH |
-| Tiempo óptimo de liofilización | **36 horas** |
+| Tiempo óptimo de liofilización | **48 h** (CONGELADO y ULTRACONGELADO) · 72 h (FRESCO) |
 | Pérdida de peso máxima | ~94.2% BH |
 | Condiciones del equipo | T cond. -36 a -41°C · P 0.94–2.432 mmHg |
+
+**Modelo de Page (cinética de secado):**
+
+| Pretratamiento | k | n | R² | RMSE |
+|---|---|---|---|---|
+| FRESCO | 0.0456 | 0.7714 | 0.764 | 0.0920 |
+| CONGELADO | 0.1072 | 0.8126 | 0.918 | 0.0538 |
+| ULTRACONGELADO | 0.1067 | 0.8323 | 0.924 | 0.0531 |
+
+**ANOVA Tipo II:** R² = 0.923 · Pretratamiento F=25.18*** · Tiempo F=322.97*** · Mes p=0.10 (ns → reproducibilidad confirmada)
+
+**Kruskal-Wallis en meseta:** 36h p=0.51 (ns), 48h p=0.18 (ns) → pretratamientos equivalentes en equilibrio
 
 ---
 
@@ -90,10 +104,10 @@ El proyecto trabaja con **ruibarbo** (*Rheum rhabarbarum* L.) como matriz princi
 GRUPO A — TÉCNICO-CIENTÍFICOS
   A1 Marco normativo de calidad         ✅ Completado
   A2 Protocolo liofilización — Ruibarbo 🔄 En proceso (~75%)
-  A5 Resultados experimentales          🔄 En proceso (~50%)
+  A5 Resultados experimentales          🔄 En proceso (~75%)
 
 GRUPO B — TRANSFERENCIA AL MEDIO
-  B1 Manual técnico-económico           ⏳ Pendiente [CRÍTICO]
+  B1 Manual técnico-económico           🔄 En proceso (~65%) [CRÍTICO]
   B2 Informe final del PID              ⏳ Pendiente [OBLIGATORIO]
   B3 Vinculación y transferencia        🔄 En proceso
 
@@ -106,6 +120,7 @@ GRUPO D — EMERGENTES
   D1 Estudio de escalado                ✅ Completado
   D2 Artículo científico indexado       ⏳ Pendiente
   D3 Propuesta nuevo PID 2026           ⏳ Pendiente
+  D4 Dashboard integral del proyecto    ✅ Completado
 ```
 
 👉 Ver el [tablero del proyecto](../../projects) para el estado en tiempo real.
@@ -117,6 +132,7 @@ GRUPO D — EMERGENTES
 ```
 /
 ├── README.md
+├── resultados_clave.md                    ← resumen de resultados estadísticos
 ├── docs/
 │   ├── protocolos/
 │   │   ├── protocolo-ruibarbo-v1.md       ← A2 (en redacción)
@@ -125,14 +141,22 @@ GRUPO D — EMERGENTES
 │   │   ├── A2-protocolo-ruibarbo.md
 │   │   ├── A5-resultados-ruibarbo.md
 │   │   ├── B1-manual-tecnico.md
-│   │   └── B2-informe-final.md
+│   │   ├── B2-informe-final.md
+│   │   └── metodologia-estadistica.md
 │   └── normativa/
 │       └── A1-marco-normativo.md
+├── dashboard/
+│   ├── etl.py                             ← pipeline Excel → SQLite
+│   ├── app.py                             ← aplicación Dash (4 pestañas)
+│   ├── pid_liofilizados.db                ← base SQLite (15 tablas)
+│   ├── run.bat                            ← script de ejecución
+│   └── README.md                          ← documentación del dashboard
 ├── data/
 │   └── experimentos/
 │       ├── exp1-dic2023/
 │       ├── exp2-may2024/
 │       └── exp3-oct2024/
+├── figuras/                               ← 6 figuras PNG del análisis
 └── scripts/
     └── proyecto_liofilizados_data.ipynb
 ```
@@ -144,7 +168,7 @@ GRUPO D — EMERGENTES
 1. **Selección de materia prima** — criterios de calidad, origen y preparación
 2. **Liofilización** — curvas de humedad vs. tiempo (método gravimétrico indirecto)
 3. **Caracterización del producto** — análisis fisicoquímicos (humedad, proteínas, lípidos, carbohidratos, aw), microbiológicos y sensoriales
-4. **Análisis estadístico** — PCA, regresión, comparación de condiciones
+4. **Análisis estadístico** — Modelo de Page, ANOVA Tipo II, Kruskal-Wallis, correlaciones Spearman, PCA
 5. **Transferencia** — manual técnico-económico para productores de TDF
 
 ---
