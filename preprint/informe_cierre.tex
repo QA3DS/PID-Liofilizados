@@ -1,0 +1,536 @@
+% ============================================================================
+% INFORME DE CIERRE — PID PP9884
+% Análisis del Proceso de Liofilizado Aplicado a Alimentos
+% de Producción Local/Regional en la Provincia de Tierra del Fuego
+% UTN FRTDF — Grupo QA3DS
+% ============================================================================
+\documentclass[12pt, a4paper]{article}
+
+% --- Idioma y codificación ---
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[spanish,es-tabla,es-noshorthands]{babel}
+
+% --- Diseño de página ---
+\usepackage[margin=2.5cm, headheight=15pt]{geometry}
+\usepackage{fancyhdr}
+\usepackage{lastpage}
+
+% --- Tipografía y colores ---
+\usepackage{xcolor}
+\usepackage{lmodern}
+
+% --- Tablas y gráficos ---
+\usepackage{booktabs}
+\usepackage{longtable}
+\usepackage{array}
+\usepackage{graphicx}
+\graphicspath{{../figuras/}}
+\usepackage{float}
+
+% --- Otros ---
+\usepackage{enumitem}
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks  = true,
+    linkcolor   = blue!60!black,
+    urlcolor    = blue!50!black,
+    citecolor   = green!50!black,
+}
+\usepackage{multirow}
+
+% --- Comando para porcentaje (evita conflicto babel) ---
+\newcommand{\pct}{\char`\%}
+
+% --- Encabezado y pie ---
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{\small PID PP9884 --- Informe de Cierre}
+\fancyhead[R]{\small UTN FRTDF --- QA3DS}
+\fancyfoot[C]{\small Página \thepage\ de \pageref{LastPage}}
+
+% ============================================================================
+\begin{document}
+
+% --- PORTADA ---
+\begin{titlepage}
+\centering
+\vspace*{2cm}
+
+{\Large\bfseries Universidad Tecnológica Nacional}\\[0.3cm]
+{\large Facultad Regional Tierra del Fuego}\\[0.3cm]
+{\large Secretaría de Ciencia, Tecnología y Posgrado}\\[1.5cm]
+
+\rule{\linewidth}{1pt}\\[0.5cm]
+{\LARGE\bfseries INFORME DE CIERRE}\\[0.3cm]
+{\Large Proyecto de Investigación y Desarrollo}\\[0.3cm]
+\rule{\linewidth}{1pt}\\[1cm]
+
+{\Large\bfseries Código: PP9884}\\[0.5cm]
+{\large\itshape Análisis del Proceso de Liofilizado Aplicado a Alimentos\\
+de Producción Local/Regional en la Provincia de Tierra del Fuego}\\[1.5cm]
+
+{\large Grupo de Investigación:}\\[0.2cm]
+{\Large\bfseries QA3DS}\\[0.2cm]
+{\normalsize Química Aplicada al Ambiente, los Alimentos y el Desarrollo Sostenible}\\[1.5cm]
+
+\begin{tabular}{ll}
+\textbf{Director:} & Ing. Pesq. Ariel Luján Giamportone \\
+\textbf{Período:} & 1 de abril de 2023 --- 31 de marzo de 2025 \\
+\textbf{Prórroga:} & DISPOSICIÓN-1-2025-PRORROGA-PP9884 \\
+\textbf{Sede:} & Ushuaia / Río Grande, Tierra del Fuego \\
+\end{tabular}
+
+\vfill
+{\normalsize Documento preliminar --- Marzo 2026}
+
+\end{titlepage}
+
+% --- TABLA DE CONTENIDOS ---
+\tableofcontents
+\newpage
+
+% ============================================================================
+\section{Datos generales del proyecto}
+% ============================================================================
+
+\begin{longtable}{p{5cm}p{10cm}}
+\toprule
+\textbf{Campo} & \textbf{Detalle} \\
+\midrule
+Código & PP9884 (PIDPP UTN) \\
+Título & Análisis del Proceso de Liofilizado Aplicado a Alimentos de Producción Local/Regional en la Provincia de Tierra del Fuego \\
+Institución & Universidad Tecnológica Nacional --- FRTDF \\
+Grupo & QA3DS (Química Aplicada al Ambiente, los Alimentos y el Desarrollo Sostenible) \\
+Director & Ing. Pesq. Ariel Luján Giamportone \\
+Período original & 1/04/2023 al 31/03/2025 \\
+Prórroga & Aprobada por DISPOSICIÓN-1-2025 (15/03/2025) \\
+Sede experimental & Laboratorio UTN FRTDF (Río Grande) \\
+Financiamiento & Sistema PIDPP --- UTN \\
+\bottomrule
+\end{longtable}
+
+% ============================================================================
+\section{Equipo de investigación}
+% ============================================================================
+
+\subsection{Investigadores docentes}
+
+\begin{longtable}{p{5.5cm}p{4cm}p{4cm}}
+\toprule
+\textbf{Nombre} & \textbf{Título} & \textbf{Rol} \\
+\midrule
+Ariel Luján Giamportone & Ing. Pesquero & Director \\
+Pamela Rocío Flores & Ing. Química & Investigadora \\
+María Victoria Cornejo & Ing. Química & Investigadora \\
+Javier Alfarano & Ing. Industrial & Investigador de Apoyo \\
+Milagro Mottola & Dra. en Química & Investigadora \\
+Tomás Chalde & Dr. & Investigador de Apoyo \\
+\bottomrule
+\end{longtable}
+
+\subsection{Alumnos investigadores}
+
+\begin{longtable}{p{4.5cm}p{3cm}p{2cm}p{2cm}p{2cm}}
+\toprule
+\textbf{Nombre} & \textbf{Carrera} & \textbf{Ingreso} & \textbf{Egreso} & \textbf{Beca} \\
+\midrule
+\multicolumn{5}{l}{\textit{Activos al cierre}} \\
+\midrule
+Emanuel Silva Naveas & Electromecánica & Jul 2024 & --- & BINID 2025 \\
+Gabriel F. Costilla & Pesquera & Abr 2023 & --- & GyJ 2025 \\
+Jorge Rojas Flores & --- & Abr 2023 & --- & GyJ 2025 \\
+Angélica Cárcamo & Ing. Química (grad.) & Mar 2025 & --- & BINID 2025 \\
+Ricardo A. Heredia & Electromecánica & Jul 2024 & --- & BINID 2025 \\
+Facundo N. Gutiérrez & Ing. Química & Abr 2024 & --- & --- \\
+Matías I. Álvarez & Ing. Química & Abr 2024 & --- & BINID 2025 \\
+\midrule
+\multicolumn{5}{l}{\textit{Egresados}} \\
+\midrule
+Michael A. Trujillo Burgos & Química & Abr 2023 & Mar 2025 & --- \\
+Federico D. Cejas & --- & Abr 2023 & Mar 2024 & --- \\
+Roxana B. Barrionuevo & --- & Abr 2023 & Mar 2024 & --- \\
+Franco Guereta & --- & Abr 2023 & Mar 2024 & --- \\
+Erika G. Mamaní Mejía & --- & Abr 2023 & Mar 2024 & --- \\
+Vanina Chávez & Química & Abr 2024 & --- & --- \\
+Facundo Fernández B. & Química & Abr 2024 & --- & --- \\
+Tamara P. Godoy Ramos & --- & Abr 2023 & --- & --- \\
+Daniel M. Esteban & Pesquera & Abr 2023 & --- & --- \\
+\bottomrule
+\end{longtable}
+
+\textbf{Resumen de Recursos Humanos formados:} 6 docentes investigadores + 16 alumnos participaron a lo largo del proyecto. Al cierre se mantienen activos 7 alumnos con dedicación de 5\,h/semana. Se gestionaron 6 becas (4 BINID 2025, 2 becas ``Gabriel y Jorge'' 2025).
+
+% ============================================================================
+\section{Objetivos del proyecto: cumplimiento}
+% ============================================================================
+
+\subsection{Objetivo general}
+
+\textit{``Agregar valor a productos regionales abriendo nuevos mercados y generando oportunidades para productores locales mediante una técnica innovadora (liofilización), mejorando la cadena de suministro con características de soberanía alimentaria en Tierra del Fuego.''}
+
+\textbf{Evaluación:} Se logró avance significativo en la generación de conocimiento técnico y científico sobre liofilización aplicada a ruibarbo patagónico. Se establecieron parámetros óptimos de proceso, se completó un estudio de escalado económico y se inició la vinculación con el sector productivo (Estancia Viamonte). Las matrices de salicornia y erizo de mar fueron descartadas por limitaciones logísticas y de acceso a materia prima.
+
+\subsection{Objetivos específicos}
+
+\begin{longtable}{p{0.5cm}p{8cm}p{2cm}p{3cm}}
+\toprule
+\textbf{\#} & \textbf{Objetivo} & \textbf{Estado} & \textbf{Observación} \\
+\midrule
+OE1 & Generar know-how sobre productos de flora y fauna típica de TDF con potencial comercial & Parcial & Solo ruibarbo (salicornia y erizo descartados) \\
+OE2 & Explorar y mejorar la obtención de alimentos con valor agregado mediante liofilización & Cumplido & Protocolo optimizado para ruibarbo \\
+OE3 & Optimizar parámetros de liofilización para mejorar calidad y estabilidad & Cumplido & Modelo de Page ajustado, plateau 36--48\,h \\
+OE4 & Evaluar métodos de análisis de datos para caracterizar productos liofilizados & Cumplido & EDA, ANOVA II, Page, Kruskal-Wallis implementados \\
+OE5 & Identificar factores clave que influyen en la calidad y estabilidad & Parcial & Pretratamiento y tiempo identificados; faltan análisis bioquímicos y sensoriales \\
+OE6 & Desarrollar equipamiento técnico: diseño de liofilizador local & Pendiente & Se formuló estudio de escalado; diseño propio no se inició \\
+OE7 & Transferir conocimiento y tecnología al sector socioproductivo & En proceso & Convenio Estancia Viamonte activo, artículos en preparación \\
+OE8 & Consolidar el grupo de I+D+I QA3DS en UTN FRTDF & Cumplido & Grupo operativo, presencia digital, 6 becados \\
+\bottomrule
+\end{longtable}
+
+\textbf{Síntesis:} De los 8 objetivos específicos, 4 se cumplieron satisfactoriamente, 2 se cumplieron parcialmente (por la reducción de matrices de 3 a 1), 1 está en proceso y 1 quedó pendiente (no era alcanzable en el período del PID sin financiamiento adicional).
+
+% ============================================================================
+\section{Actividades realizadas}
+% ============================================================================
+
+\subsection{Trabajo experimental}
+
+Se realizaron cuatro baterías experimentales de liofilización de ruibarbo (\textit{Rheum rhabarbarum} L.) entre diciembre de 2023 y enero de 2025:
+
+\begin{longtable}{p{1.5cm}p{2cm}p{2.5cm}p{2cm}p{5cm}}
+\toprule
+\textbf{Exp.} & \textbf{Fecha} & \textbf{Pretratamiento} & \textbf{Réplicas} & \textbf{Resultado principal} \\
+\midrule
+Exp1 & Dic 2023 & FRESCO & 3 & Primera curva cinética; pérdida $\sim$94\,\pct{} BH \\
+Exp2 & May 2024 & FRESCO, CONG., ULTRACONG. & 9 & Primer diseño factorial 3$\times$3 \\
+Exp3 & Jul 2024 & FRESCO, CONG., ULTRACONG. & 9 & Serie más completa; plateau a 36\,h \\
+Exp4 & Ene 2025 & FRESCO, CONG., ULTRACONG. & 9 & Confirmación de tendencias \\
+\bottomrule
+\end{longtable}
+
+\textbf{Dataset total:} 261 observaciones (30 combinaciones pretratamiento\,$\times$\,tiempo, con 9 réplicas cada una).
+
+\textbf{Equipamiento utilizado:}
+\begin{itemize}[nosep]
+    \item Liofilizador RIFICOR LT-8 (laboratorio UTN FRTDF, Río Grande)
+    \item Balanza analítica OHAUS AR2140 (210\,g, 0{,}1\,mg)
+    \item Balanza portátil OHAUS CR (2200\,g, 1\,g) --- adquirida jun 2024
+    \item Termómetro digital Alla France $-50$ a $+70$\,°C --- adquirido jun 2024
+    \item Selladora al vacío + bolsas/rollos gofrados Turbosaver
+\end{itemize}
+
+\textbf{Muestras:} Peciolos de ruibarbo cortados transversalmente ($\sim$1\,cm) provenientes de huerta doméstica (Río Grande) y Estancia Viamonte (30\,km de Río Grande). Dos ecotipos: invernadero (más turgente) y exterior (más blando).
+
+\subsection{Resultados principales}
+
+Los resultados experimentales completos se presentan en el preprint científico adjunto (\texttt{main.tex}). Se resumen a continuación:
+
+\begin{enumerate}[nosep]
+    \item \textbf{Cinética de secado:} El modelo de Page describe adecuadamente la pérdida de peso ($R^2 = 0{,}89$--$0{,}92$). El pretratamiento ULTRACONGELADO mostró la cinética más rápida ($k = 0{,}1067$\,h$^{-n}$, $n = 0{,}8323$).
+
+    \item \textbf{Tiempo óptimo:} Se alcanza pérdida de peso del 94\,\pct{} a las 36\,h con barquillo de aluminio. El plateau de la derivada numérica confirma estabilización:
+    \begin{itemize}[nosep]
+        \item FRESCO: 72\,h
+        \item CONGELADO: 48\,h
+        \item ULTRACONGELADO: 48\,h
+    \end{itemize}
+
+    \item \textbf{Efecto del pretratamiento:} Significativo a las 24\,h (Kruskal-Wallis $p = 0{,}0004$), pero convergente a 36--48\,h ($p > 0{,}05$). Implicancia industrial: el congelamiento previo acelera las primeras fases pero no altera el resultado final.
+
+    \item \textbf{Reproducibilidad:} La ANOVA Tipo~II ($R^2 = 0{,}923$) mostró que el factor mes (bloque) no es significativo ($p = 0{,}1005$), confirmando que los resultados son reproducibles entre baterías experimentales.
+
+    \item \textbf{Condiciones operacionales:} Temperatura del condensador $-36$ a $-41$\,°C; presión 0{,}94 a 2{,}432\,mmHg. El equipo no siempre alcanzó las especificaciones mínimas del manual.
+\end{enumerate}
+
+\subsection{Matrices descartadas}
+
+\begin{itemize}[nosep]
+    \item \textbf{Salicornia (\textit{Sarcocornia magellanica}):} Descartada por dificultades de acceso a materia prima en cantidades suficientes y por la falta de protocolo previo de procesamiento. Se conserva la línea para un futuro proyecto.
+    \item \textbf{Erizo de mar (\textit{Loxechinus albus}, \textit{Pseudechinus magellanicus}):} Descartado por complejidad logística de obtención de gónadas frescas en condiciones controladas, restricciones de pesca y necesidad de protocolos de bioseguridad adicionales. Se recopiló documentación bibliográfica (ERIZOS v2--v4.pptx).
+\end{itemize}
+
+% ============================================================================
+\section{Producción científica y académica}
+% ============================================================================
+
+\subsection{Publicaciones y documentos técnicos}
+
+\begin{longtable}{p{0.5cm}p{7.5cm}p{2.5cm}p{2.5cm}}
+\toprule
+\textbf{\#} & \textbf{Producto} & \textbf{Tipo} & \textbf{Estado} \\
+\midrule
+1 & ``Química Aplicada al Ambiente, los Alimentos y el Desarrollo Sostenible: Investigando la Liofilización en Tierra del Fuego'' (Flores, Mottola, Cornejo, Alfarano, Giamportone) & Artículo divulg. (La Lupa) & Redactado \\
+2 & ``Liofilización: Conservando el Futuro Alimentario de Tierra del Fuego'' & Artículo divulg. (La Lupa) & Redactado \\
+3 & Artículo breve La Lupa 2025 (Alfarano) & Artículo divulg. & En preparación \\
+4 & Preprint cinética de liofilización de ruibarbo (15\,pp, 7 tablas, 3 figuras) & Preprint científico & Completado \\
+5 & Estudio de escalado y factibilidad (5 documentos) & Informe técnico & Completado \\
+6 & Business Model Canvas (Mottola) & Análisis de negocio & Completado \\
+7 & Guía de uso rápido del liofilizador v1 & Manual técnico & Completado \\
+8 & Notebook de análisis estadístico compilado (25 celdas, 6 figuras) & Análisis computac. & Completado \\
+9 & Dashboard integral del proyecto (Dash + SQLite, 4 pestañas) & Herramienta web & Completado \\
+\bottomrule
+\end{longtable}
+
+\subsection{Presentaciones y eventos}
+
+\begin{longtable}{p{3cm}p{7cm}p{3.5cm}}
+\toprule
+\textbf{Fecha} & \textbf{Evento} & \textbf{Tipo} \\
+\midrule
+Oct 2023 & Jornadas de Ciencia y Tecnología 2023, UTN FRTDF & Presentación \\
+Oct 2024 & Capacitación uso del liofilizador (4\,h presencial) & Capacitación interna \\
+2025 & Semana del Ambiente, Municipio de Río Grande & Presentación pública \\
+\bottomrule
+\end{longtable}
+
+\subsection{Posters}
+\begin{itemize}[nosep]
+    \item Poster QA3DS PID --- difusión institucional
+    \item Poster QA3DS Colegio de Ingenieros
+\end{itemize}
+
+\subsection{Infraestructura digital generada}
+
+\begin{itemize}[nosep]
+    \item \textbf{GitHub:} Organización \href{https://github.com/QA3DS}{QA3DS}, repositorio \href{https://github.com/QA3DS/PID-Liofilizados}{PID-Liofilizados} (13 issues, 3 milestones, 12 labels), Project Board Kanban
+    \item \textbf{LinkedIn:} Página institucional del grupo QA3DS
+    \item \textbf{ResearchGate:} Laboratorio QA3DS
+\end{itemize}
+
+% ============================================================================
+\section{Formación de recursos humanos}
+% ============================================================================
+
+\begin{itemize}[nosep]
+    \item \textbf{16 alumnos investigadores} participaron a lo largo del proyecto (7 activos al cierre)
+    \item \textbf{6 becas gestionadas:} 4 BINID 2025 (Silva Naveas, Cárcamo, Heredia, Álvarez) + 2 becas ``Gabriel y Jorge'' 2025 (Costilla, Rojas Flores)
+    \item \textbf{1 capacitación formal:} Uso del liofilizador RIFICOR LT-8 (4\,h, oct 2024), con certificación a participantes. Docentes capacitadores: Cornejo, Flores, Alfarano
+    \item \textbf{1 graduada incorporada:} Angélica Cárcamo (Ing. Química) se incorporó como investigadora graduada en mar 2025 con beca BINID
+    \item \textbf{Habilidades desarrolladas:} técnicas de liofilización, análisis gravimétrico, procesamiento de datos experimentales, análisis estadístico con Python, gestión de proyectos en GitHub
+\end{itemize}
+
+% ============================================================================
+\section{Vinculación y transferencia}
+% ============================================================================
+
+\begin{itemize}[nosep]
+    \item \textbf{Estancia Viamonte:} Convenio de colaboración activo desde 2024 para acceso a materias primas y entorno productivo real (ruibarbo, ajo negro, grosellas)
+    \item \textbf{INTI:} Se identificó como referencia de transferencia tecnológica (modelo Trufas del Nuevo Mundo --- trufas liofilizadas exportadas a España y Francia)
+    \item \textbf{En gestión:} contactos con INTA, ANMAT, SENASA, Secretaría Provincial de Ambiente
+\end{itemize}
+
+% ============================================================================
+\section{Ejecución presupuestaria}
+% ============================================================================
+
+\subsection{Compras realizadas}
+
+\begin{longtable}{p{5cm}p{2.5cm}p{2cm}p{3.5cm}}
+\toprule
+\textbf{Ítem} & \textbf{Monto} & \textbf{Fecha} & \textbf{Observación} \\
+\midrule
+\multicolumn{4}{l}{\textit{Equipamiento (Ítem 4.3)}} \\
+\midrule
+Balanza portátil OHAUS CR & USD\,230 & Jun 2024 & Prov.: One Lab \\
+Termómetro Alla France $-50/+70$°C & USD\,44 & Jun 2024 & Prov.: One Lab \\
+\midrule
+\multicolumn{4}{l}{\textit{Insumos (Ítem 2)}} \\
+\midrule
+Rollos gofrados Turbosaver 22\,cm$\times$5\,m ($\times$2) & ARS\,20.260 & Nov 2024 & Envases al vacío \\
+Bolsas gofradas Turbosaver 22$\times$30\,cm ($\times$50) & ARS\,13.720 & Nov 2024 & Envases al vacío \\
+Bolsas envasado al vacío (compra add.) & ---\textsuperscript{*} & Mar 2025 & Nota PIDPP \\
+\midrule
+\multicolumn{4}{l}{\textit{Servicios y viáticos (Ítem 3)}} \\
+\midrule
+Reintegro viáticos dic 2024 & ---\textsuperscript{*} & Dic 2024 & Solicitud V. Cornejo \\
+\midrule
+\multicolumn{4}{l}{\textit{Solicitudes en gestión}} \\
+\midrule
+Mesa antivibratoria (para OHAUS AR2140) & ---\textsuperscript{*} & Solicitada & Necesaria para calibración \\
+Parrillas/estantes para liofilizador & ---\textsuperscript{*} & Mar 2024 & Solicitada \\
+Selladora al vacío & ---\textsuperscript{*} & Solicitada & Prov.: Turbosaver \\
+\bottomrule
+\end{longtable}
+
+{\footnotesize \textsuperscript{*} Monto no disponible en la documentación digital accesible. Consultar comprobantes físicos.}
+
+\textbf{Nota:} Existen cotizaciones documentadas (N° 56952, N° 49561, Presupuesto 73736, P-00004577) en los archivos del proyecto cuyo detalle de montos ejecutados requiere verificación con los comprobantes originales.
+
+\subsection{Crédito presupuestario disponible}
+
+En fecha 17 de marzo de 2026 se notificó la disponibilidad del crédito correspondiente al saldo al 31/12/2025:
+
+\begin{table}[H]
+\centering
+\caption{Crédito presupuestario disponible --- PID PP9884 (saldo 31/12/2025)}
+\label{tab:credito}
+\begin{tabular}{clr}
+\toprule
+\textbf{Ítem} & \textbf{Concepto} & \textbf{Crédito (ARS)} \\
+\midrule
+2 & Insumos & \$\,100.577{,}54 \\
+3 & Servicios / viáticos / honorarios & \$\,55.498{,}05 \\
+4.3 & Equipamiento & \$\,87.485{,}89 \\
+\midrule
+& \textbf{TOTAL} & \textbf{\$\,243.561{,}48} \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\subsection{Propuesta estratégica de inversión del saldo}
+
+El saldo disponible de ARS\,243.561{,}48 puede asignarse según el siguiente análisis de prioridades:
+
+\begin{longtable}{p{1.5cm}p{5cm}p{2.5cm}p{4.5cm}}
+\toprule
+\textbf{Ítem} & \textbf{Propuesta} & \textbf{Monto est.} & \textbf{Justificación} \\
+\midrule
+\multicolumn{4}{l}{\textit{Prioridad ALTA --- Completar experimentos en curso}} \\
+\midrule
+2 & Insumos para Exp5+ (ruibarbo fresco, envases, sales para aw, reactivos) & ARS\,$\sim$60.000 & Necesarios para completar el ciclo experimental con análisis de actividad de agua \\
+2 & Bolsas y rollos gofrados adicionales & ARS\,$\sim$25.000 & Stock de envasado para experimentos y muestras de conservación \\
+3 & Análisis externos: IIByT-CONICET (DVS), CIATI (microbiología, rotulado nutricional) & ARS\,$\sim$55.000 & Dato crítico para OE5 y para el artículo científico D2 \\
+\midrule
+\multicolumn{4}{l}{\textit{Prioridad MEDIA --- Mejora de infraestructura}} \\
+\midrule
+4.3 & Mesa antivibratoria para balanza OHAUS AR2140 & ARS\,$\sim$87.000 & Solicitada y pendiente; mejora la precisión analítica \\
+\midrule
+\multicolumn{4}{l}{\textit{Prioridad BAJA --- Difusión}} \\
+\midrule
+3 & Viáticos para presentación en jornadas/congreso & ARS\, residual & Presentar resultados en evento nacional \\
+\bottomrule
+\end{longtable}
+
+\textbf{Nota:} Dada la inflación en Argentina, se recomienda ejecutar las compras con prontitud para preservar el poder adquisitivo de los fondos asignados.
+
+% ============================================================================
+\section{Estado de entregables comprometidos}
+% ============================================================================
+
+\begin{longtable}{p{0.7cm}p{4.5cm}p{1.5cm}p{1.5cm}p{5cm}}
+\toprule
+\textbf{Cód.} & \textbf{Entregable} & \textbf{Estado} & \textbf{Avance} & \textbf{Observación} \\
+\midrule
+\multicolumn{5}{l}{\textit{Grupo A --- Técnico-científicos}} \\
+\midrule
+A1 & Marco normativo de calidad & \checkmark & 100\,\pct{} & Completado abr--may 2023 \\
+A2 & Protocolo liofilización --- Ruibarbo & En proc. & $\sim$75\,\pct{} & Protocolo funcional; falta formalización final \\
+A3 & Protocolo liofilización --- Salicornia & Canc. & --- & Matriz descartada \\
+A4 & Protocolo liofilización --- Erizo & Canc. & --- & Matriz descartada \\
+A5 & Resultados experimentales --- Ruibarbo & En proc. & $\sim$75\,\pct{} & 4 experimentos, 261 obs, análisis estadístico completo; faltan bioquímicos \\
+A6 & Resultados experimentales --- Animal & Canc. & --- & Matriz descartada \\
+\midrule
+\multicolumn{5}{l}{\textit{Grupo B --- Transferencia al medio}} \\
+\midrule
+B1 & Manual técnico-económico & En proc. & $\sim$65\,\pct{} & Cap.~1--6 + Anexos A, C, D redactados; falta Anexo~B y revisión \\
+B2 & Informe final del PID & Pend. & 0\,\pct{} & \textbf{Pendiente.} Este documento contribuye a B2 \\
+B3 & Vinculación y transferencia & En proc. & $\sim$70\,\pct{} & Convenio Viamonte, presente en eventos \\
+\midrule
+\multicolumn{5}{l}{\textit{Grupo C --- Formación y difusión}} \\
+\midrule
+C1 & Consolidación grupo QA3DS & \checkmark & 100\,\pct{} & Grupo operativo, presencia digital, becas \\
+C2 & Artículos de divulgación & En proc. & $\sim$80\,\pct{} & 2 artículos La Lupa redactados, pend. presentación \\
+C3 & Presentaciones en jornadas & En proc. & $\sim$60\,\pct{} & Jornadas CyT 2023, Semana Ambiente Muni RG \\
+\midrule
+\multicolumn{5}{l}{\textit{Grupo D --- Emergentes}} \\
+\midrule
+D1 & Estudio de escalado & \checkmark & 100\,\pct{} & 5 documentos técnico-económicos \\
+D2 & Artículo científico indexado & En proc. & $\sim$30\,\pct{} & Preprint completado; falta selec. revista y envío \\
+D3 & Propuesta nuevo PID 2026 & Pend. & 0\,\pct{} & Objetivo del grupo: 1 PID/año \\
+D4 & Dashboard integral & \checkmark & 100\,\pct{} & ETL + Dash, 4 pestañas, 12+ gráficos \\
+D5 & Preprint científico LaTeX & \checkmark & 100\,\pct{} & 15 pp, 14 refs verificadas \\
+\bottomrule
+\end{longtable}
+
+\textbf{Resumen:} De los 10 entregables activos (excluyendo 3 cancelados), 5 están completados (100\,\pct{}), 4 en proceso avanzado (60--80\,\pct{}) y 1 pendiente (B2, que es este informe).
+
+% ============================================================================
+\section{Alianzas estratégicas}
+% ============================================================================
+
+\begin{longtable}{p{4cm}p{2cm}p{7.5cm}}
+\toprule
+\textbf{Entidad} & \textbf{Estado} & \textbf{Descripción} \\
+\midrule
+Estancia Viamonte & Activo & Convenio de colaboración para materia prima (ruibarbo, ajo negro, grosellas) y entorno productivo. A 30\,km de Río Grande. \\
+INTI & Referencia & Modelo de transferencia tecnológica (Trufas del Nuevo Mundo) \\
+INTA & En gestión & Potencial colaboración técnica \\
+IIByT-CONICET (UNC) & Puntual & Análisis DVS (sorption isotherms) \\
+CIATI (Alto Valle) & Puntual & Análisis microbiológico y rotulado nutricional \\
+ICTA (UNC) & Puntual & Asistencia técnica para evaluación sensorial \\
+\bottomrule
+\end{longtable}
+
+% ============================================================================
+\section{Dificultades y lecciones aprendidas}
+% ============================================================================
+
+\subsection{Dificultades encontradas}
+
+\begin{enumerate}[nosep]
+    \item \textbf{Reducción del alcance:} De las tres matrices originales (ruibarbo, salicornia, erizo de mar), solo se pudo trabajar experimentalmente con ruibarbo. Las otras fueron descartadas por limitaciones logísticas, de acceso a materia prima y de infraestructura.
+
+    \item \textbf{Limitaciones del equipamiento:} El liofilizador RIFICOR LT-8 no siempre alcanzó las especificaciones del manual (temperatura y presión reales difirieron en algunos ciclos). La falta de mesa antivibratoria limita la precisión de las mediciones analíticas.
+
+    \item \textbf{Rotación de alumnos:} 9 de los 16 alumnos egresaron o se retiraron durante el proyecto, lo que generó desafíos en la continuidad del trabajo experimental.
+
+    \item \textbf{Distancia geográfica:} El equipo dividido entre Ushuaia y Río Grande añade complejidad logística. El laboratorio experimental está en Río Grande.
+
+    \item \textbf{Contexto económico:} La inflación argentina dificulta la planificación presupuestaria y reduce el poder adquisitivo de los fondos asignados entre el momento de la aprobación y la ejecución.
+
+    \item \textbf{Acceso a análisis externos:} Los laboratorios de análisis bioquímico y microbiológico se encuentran fuera de la provincia, lo que encarece y enlentece la obtención de resultados complementarios.
+\end{enumerate}
+
+\subsection{Lecciones aprendidas}
+
+\begin{enumerate}[nosep]
+    \item Concentrar esfuerzos en una matriz permitió obtener resultados más profundos y estadísticamente robustos que dispersar en tres líneas.
+    \item La digitalización del flujo de trabajo (GitHub, notebook, dashboard) mejoró sustancialmente la trazabilidad y la productividad del equipo.
+    \item El convenio con un productor real (Estancia Viamonte) resultó clave para el acceso sostenido a materia prima de calidad.
+    \item La formación de alumnos en análisis de datos y estadística tiene impacto formativo que trasciende el proyecto.
+    \item La generación de un estudio de escalado desde etapas tempranas orientó la discusión hacia la aplicabilidad real de los resultados.
+\end{enumerate}
+
+% ============================================================================
+\section{Actividades pendientes y compromisos abiertos}
+% ============================================================================
+
+\begin{longtable}{p{0.5cm}p{5.5cm}p{2cm}p{5.5cm}}
+\toprule
+\textbf{\#} & \textbf{Actividad} & \textbf{Prioridad} & \textbf{Plazo estimado} \\
+\midrule
+1 & Formalizar B2 (informe final PIDPP) a partir de este documento & Crítica & Inmediato \\
+2 & Completar B1 (Anexo B --- datos terceros, revisión docente) & Alta & 1--2 meses \\
+3 & Enviar artículos La Lupa redactados para evaluación & Alta & 1 mes \\
+4 & Ejecutar crédito presupuestario 2025 (ARS\,243.561) & Alta & Inmediato (preservar valor) \\
+5 & Análisis bioquímicos externos (DVS, microbiología, rotulado) & Alta & 2--3 meses \\
+6 & Seleccionar revista y enviar preprint como artículo (D2) & Media & 2--3 meses \\
+7 & Completar análisis de actividad de agua (aw) & Media & 2--4 meses \\
+8 & Formular propuesta de nuevo PID (D3) & Media & 3--6 meses \\
+9 & Presentar en congreso/jornadas con resultados completos & Baja & 6 meses \\
+10 & Avanzar con propuesta de planta piloto (Fase 1 del escalado) & Baja & 6--12 meses \\
+\bottomrule
+\end{longtable}
+
+% ============================================================================
+\section{Conclusiones}
+% ============================================================================
+
+El PID PP9884 ha producido resultados significativos en la caracterización del proceso de liofilización aplicado a ruibarbo patagónico, con un dataset robusto de 261 observaciones, análisis estadístico completo y un preprint científico listo para sometimiento a revisión por pares. Si bien el alcance original se redujo de tres matrices a una, la profundidad alcanzada en la matriz de ruibarbo supera lo inicialmente planificado en términos de análisis de datos.
+
+El proyecto ha cumplido satisfactoriamente con los objetivos de consolidación del grupo QA3DS, formación de recursos humanos (16 alumnos, 6 becados), generación de know-how sobre liofilización y vinculación con el sector productivo regional.
+
+Los principales compromisos abiertos son: la formalización del informe final (B2), el envío del artículo científico a revista indexada, y la ejecución del crédito presupuestario recientemente notificado.
+
+Se recomienda que las actividades pendientes se integren en la propuesta del próximo PID del grupo QA3DS, asegurando la continuidad de las líneas de investigación iniciadas.
+
+\vspace{1cm}
+
+\noindent\rule{6cm}{0.5pt}\\
+\textbf{Ing. Pesq. Ariel Luján Giamportone}\\
+Director --- PID PP9884\\
+Grupo QA3DS --- UTN FRTDF\\
+Marzo 2026
+
+\end{document}
