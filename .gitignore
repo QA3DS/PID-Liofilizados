@@ -15,5 +15,13 @@ Thumbs.db
 # Jupyter checkpoints
 .ipynb_checkpoints/
 
+# LaTeX auxiliary files
+*.aux
+*.bbl
+*.blg
+*.log
+*.out
+*.synctex.gz
+
 # Dashboard generated figures
 dashboard/figuras/
