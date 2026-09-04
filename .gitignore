@@ -22,6 +22,8 @@ Thumbs.db
 *.log
 *.out
 *.synctex.gz
+*.toc
+preprint/compile_out.txt
 
 # Dashboard generated figures
 dashboard/figuras/
