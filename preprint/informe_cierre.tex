@@ -38,6 +38,13 @@
     citecolor   = green!50!black,
 }
 \usepackage{multirow}
+\usepackage{amssymb}
+
+% --- Marcas de revisión (borrador v2) ---
+% \porconf{...}: valor que cambia al corregir la fórmula de pérdida de peso o que espera confirmación.
+% \pend{...}: dato que falta confirmar o completar.
+\newcommand{\porconf}[1]{\textcolor{orange!85!black}{#1}}
+\newcommand{\pend}[1]{\textcolor{red!70!black}{\textbf{[Pendiente: #1]}}}
 
 % --- Comando para porcentaje (evita conflicto babel) ---
 \newcommand{\pct}{\char`\%}
@@ -76,15 +83,26 @@ de Producción Local/Regional en la Provincia de Tierra del Fuego}\\[1.5cm]
 
 \begin{tabular}{ll}
 \textbf{Director:} & Ing. Pesq. Ariel Luján Giamportone \\
-\textbf{Período:} & 1 de abril de 2023 --- 31 de marzo de 2025 \\
-\textbf{Prórroga:} & DISPOSICIÓN-1-2025-PRORROGA-PP9884 \\
+\textbf{Co-director:} & Dr. Tomás Chalde \\
+\textbf{Período original:} & 1 de abril de 2023 --- 31 de marzo de 2025 \\
+\textbf{Prórroga:} & Disposición SCyT N.º 0001/2025 (10/03/2025) \\
 \textbf{Sede:} & Ushuaia / Río Grande, Tierra del Fuego \\
 \end{tabular}
 
 \vfill
-{\normalsize Documento preliminar --- Marzo 2026}
+{\normalsize Borrador v2 en revisión --- Septiembre 2026}
 
 \end{titlepage}
+
+% --- NOTA DE VERSIÓN ---
+\noindent\fcolorbox{orange!70!black}{orange!6}{\parbox{\dimexpr\linewidth-2\fboxsep-2\fboxrule}{\small
+\textbf{Sobre esta versión (borrador v2, septiembre de 2026).} Incorpora la revisión del borrador de marzo contra las fuentes primarias (propuesta homologada, Disposición SCyT 0001/2025, planilla de resultados) y los aportes de la Dra.~Milagro Mottola.
+\begin{itemize}[nosep,leftmargin=1.2em]
+  \item \porconf{En naranja}: cifras calculadas con la columna de pérdida de peso de la planilla, que tiene un error sistemático (ver §\ref{sec:resultados}). Cambian al corregirla; las conclusiones no.
+  \item \pend{en rojo}: datos que el equipo tiene que confirmar antes de presentar el informe.
+\end{itemize}}}
+
+\vspace{1em}
 
 % --- TABLA DE CONTENIDOS ---
 \tableofcontents
@@ -98,13 +116,15 @@ de Producción Local/Regional en la Provincia de Tierra del Fuego}\\[1.5cm]
 \toprule
 \textbf{Campo} & \textbf{Detalle} \\
 \midrule
-Código & PP9884 (PIDPP UTN) \\
+Código & PP9884 (PIDPP UTN) --- Código SCyT PAPPTF0009884 \\
 Título & Análisis del Proceso de Liofilizado Aplicado a Alimentos de Producción Local/Regional en la Provincia de Tierra del Fuego \\
 Institución & Universidad Tecnológica Nacional --- FRTDF \\
 Grupo & QA3DS (Química Aplicada al Ambiente, los Alimentos y el Desarrollo Sostenible) \\
 Director & Ing. Pesq. Ariel Luján Giamportone \\
-Período original & 1/04/2023 al 31/03/2025 \\
-Prórroga & Aprobada por DISPOSICIÓN-1-2025 (15/03/2025) \\
+Co-director & Dr. Tomás Chalde \\
+Homologación & Disposición SCyT 1/2023 (10/03/2023) \\
+Período original & 1/04/2023 al 31/03/2025 (24 meses) \\
+Prórroga & Disposición SCyT N.º 0001/2025 (10/03/2025). Fecha de finalización: \pend{confirmar} \\
 Sede experimental & Laboratorio UTN FRTDF (Río Grande) \\
 Financiamiento & Sistema PIDPP --- UTN \\
 \bottomrule
@@ -121,13 +141,16 @@ Financiamiento & Sistema PIDPP --- UTN \\
 \textbf{Nombre} & \textbf{Título} & \textbf{Rol} \\
 \midrule
 Ariel Luján Giamportone & Ing. Pesquero & Director \\
-Pamela Rocío Flores & Ing. Química & Investigadora \\
-María Victoria Cornejo & Ing. Química & Investigadora \\
-Javier Alfarano & Ing. Industrial & Investigador de Apoyo \\
-Milagro Mottola & Dra. en Química & Investigadora \\
-Tomás Chalde & Dr. & Investigador de Apoyo \\
+Tomás Chalde & Dr. & Co-director \\
+María Victoria Cornejo & Ing. Química & Investigadora de apoyo \\
+Pamela Rocío Flores & Ing. Química & Investigadora de apoyo \\
+Milagro Mottola & Dra. en Química & Investigadora de apoyo \\
+Javier Alfarano & Ing. Industrial & Investigador de apoyo \\
+Teresita Mabel Quiroga & \pend{título} & Investigadora de apoyo \pend{situación actual} \\
 \bottomrule
 \end{longtable}
+
+{\footnotesize Cargos según la propuesta homologada por la SCyT.}
 
 \subsection{Alumnos investigadores}
 
@@ -139,13 +162,13 @@ Tomás Chalde & Dr. & Investigador de Apoyo \\
 \midrule
 Emanuel Silva Naveas & Electromecánica & Jul 2024 & --- & BINID 2025 \\
 Gabriel F. Costilla & Pesquera & Abr 2023 & --- & GyJ 2025 \\
-Jorge Rojas Flores & --- & Abr 2023 & --- & GyJ 2025 \\
+Jorge Rojas Flores & \porconf{Pesquera} & Abr 2023 & --- & GyJ 2025 \\
 Angélica Cárcamo & Ing. Química (grad.) & Mar 2025 & --- & BINID 2025 \\
 Ricardo A. Heredia & Electromecánica & Jul 2024 & --- & BINID 2025 \\
 Facundo N. Gutiérrez & Ing. Química & Abr 2024 & --- & --- \\
 Matías I. Álvarez & Ing. Química & Abr 2024 & --- & BINID 2025 \\
 \midrule
-\multicolumn{5}{l}{\textit{Egresados}} \\
+\multicolumn{5}{l}{\textit{Bajas y egresos}} \\
 \midrule
 Michael A. Trujillo Burgos & Química & Abr 2023 & Mar 2025 & --- \\
 Federico D. Cejas & --- & Abr 2023 & Mar 2024 & --- \\
@@ -156,10 +179,13 @@ Vanina Chávez & Química & Abr 2024 & --- & --- \\
 Facundo Fernández B. & Química & Abr 2024 & --- & --- \\
 Tamara P. Godoy Ramos & --- & Abr 2023 & --- & --- \\
 Daniel M. Esteban & Pesquera & Abr 2023 & --- & --- \\
+Gonzalo Rivero & --- & Abr 2023 & \pend{estado} & --- \\
 \bottomrule
 \end{longtable}
 
-\textbf{Resumen de Recursos Humanos formados:} 6 docentes investigadores + 16 alumnos participaron a lo largo del proyecto. Al cierre se mantienen activos 7 alumnos con dedicación de 5\,h/semana. Se gestionaron 6 becas (4 BINID 2025, 2 becas ``Gabriel y Jorge'' 2025).
+{\footnotesize Chávez, Fernández Barrios, Godoy Ramos y Esteban figuran sin fecha de baja: \pend{completar con las modificaciones de PIDPP}.}
+
+\textbf{Resumen de Recursos Humanos formados:} \porconf{7 docentes investigadores + 17 alumnos} participaron a lo largo del proyecto. Al cierre se mantienen activos 7 alumnos con dedicación de 5\,h/semana. Se gestionaron 6 becas (4 BINID 2025, 2 becas ``Gabriel y Jorge'' 2025).
 
 % ============================================================================
 \section{Objetivos del proyecto: cumplimiento}
@@ -167,28 +193,27 @@ Daniel M. Esteban & Pesquera & Abr 2023 & --- & --- \\
 
 \subsection{Objetivo general}
 
-\textit{``Agregar valor a productos regionales abriendo nuevos mercados y generando oportunidades para productores locales mediante una técnica innovadora (liofilización), mejorando la cadena de suministro con características de soberanía alimentaria en Tierra del Fuego.''}
+\textit{``Generar nuevo conocimiento sobre el proceso de liofilización aplicado a productos alimenticios locales/regionales, con el fin de proponer a los productores de la provincia una nueva técnica de conservación y de presentación de dichos productos.''}
 
-\textbf{Evaluación:} Se logró avance significativo en la generación de conocimiento técnico y científico sobre liofilización aplicada a ruibarbo patagónico. Se establecieron parámetros óptimos de proceso, se completó un estudio de escalado económico y se inició la vinculación con el sector productivo (Estancia Viamonte). Las matrices de salicornia y erizo de mar fueron descartadas por limitaciones logísticas y de acceso a materia prima.
+\textbf{Evaluación:} Cumplido en parte. Se generó conocimiento sobre la cinética de liofilización del ruibarbo y se establecieron parámetros de proceso transferibles (pretratamiento y duración del ciclo). La propuesta a los productores está en curso a través del manual técnico-económico (B1) y de la vinculación con una productora local. Las matrices de salicornia y erizo de mar se descartaron durante la ejecución.
 
 \subsection{Objetivos específicos}
 
-\begin{longtable}{p{0.5cm}p{8cm}p{2cm}p{3cm}}
+\begin{longtable}{p{0.6cm}p{6cm}p{2cm}p{5cm}}
 \toprule
-\textbf{\#} & \textbf{Objetivo} & \textbf{Estado} & \textbf{Observación} \\
+\textbf{\#} & \textbf{Objetivo (propuesta homologada)} & \textbf{Estado} & \textbf{Observación} \\
 \midrule
-OE1 & Generar know-how sobre productos de flora y fauna típica de TDF con potencial comercial & Parcial & Solo ruibarbo (salicornia y erizo descartados) \\
-OE2 & Explorar y mejorar la obtención de alimentos con valor agregado mediante liofilización & Cumplido & Protocolo optimizado para ruibarbo \\
-OE3 & Optimizar parámetros de liofilización para mejorar calidad y estabilidad & Cumplido & Modelo de Page ajustado, plateau 36--48\,h \\
-OE4 & Evaluar métodos de análisis de datos para caracterizar productos liofilizados & Cumplido & EDA, ANOVA II, Page, Kruskal-Wallis implementados \\
-OE5 & Identificar factores clave que influyen en la calidad y estabilidad & Parcial & Pretratamiento y tiempo identificados; faltan análisis bioquímicos y sensoriales \\
-OE6 & Desarrollar equipamiento técnico: diseño de liofilizador local & Pendiente & Se formuló estudio de escalado; diseño propio no se inició \\
-OE7 & Transferir conocimiento y tecnología al sector socioproductivo & En proceso & Convenio Estancia Viamonte activo, artículos en preparación \\
-OE8 & Consolidar el grupo de I+D+I QA3DS en UTN FRTDF & Cumplido & Grupo operativo, presencia digital, 6 becados \\
+OE1 & Determinar las características de calidad nutricional, fisicoquímicas y organolépticas que deberán tener los productos liofilizados, según la reglamentación vigente & Cumplido & Marco normativo de calidad (A1) \\
+OE2 & Evaluar los protocolos de liofilización y seleccionar el más adecuado para las características de calidad buscadas & Cumplido para ruibarbo & Pretratamiento congelado y ciclo de 36--48\,h. La selección se basa en la cinética de pérdida de peso; falta validarla con parámetros de calidad (OE3) \\
+OE3 & Establecer los valores de los parámetros de calidad nutricionales, fisicoquímicos y organolépticos de los productos liofilizados, en base a los resultados experimentales & Pendiente & Sin análisis bioquímicos, microbiológicos ni sensoriales. Método de actividad de agua desarrollado, sin resultados informados. Análisis químicos previstos en el CIDCA \\
+OE4 & Facilitar los resultados al sector productivo a través de un manual técnico-económico sobre la liofilización de ruibarbo, salicornia y erizo de mar & Parcial & Manual B1 en redacción ($\sim$65\,\pct{}), solo para ruibarbo \\
+OE5 & Realizar actividades de vinculación y transferencia con el medio productivo & En proceso & Estancia Viamonte, productora local (2026), jornadas, charla en el Municipio de Río Grande, sitio web del grupo \\
 \bottomrule
 \end{longtable}
 
-\textbf{Síntesis:} De los 8 objetivos específicos, 4 se cumplieron satisfactoriamente, 2 se cumplieron parcialmente (por la reducción de matrices de 3 a 1), 1 está en proceso y 1 quedó pendiente (no era alcanzable en el período del PID sin financiamiento adicional).
+\textbf{Síntesis:} De los cinco objetivos específicos homologados, uno se cumplió, uno se cumplió para la única matriz trabajada, uno está en proceso, uno se cumplió parcialmente y uno está pendiente (OE3). El objetivo pendiente es el que requiere caracterizar la calidad del producto, y es también lo que falta para publicar los resultados (ver §\ref{sec:pendientes}).
+
+Los objetivos estratégicos del grupo QA3DS (consolidar el grupo, diseñar un liofilizador local, formar recursos humanos) no forman parte de los objetivos homologados del PID. Lo aportado en ese plano se informa en la sección de formación de recursos humanos.
 
 % ============================================================================
 \section{Actividades realizadas}
@@ -196,58 +221,64 @@ OE8 & Consolidar el grupo de I+D+I QA3DS en UTN FRTDF & Cumplido & Grupo operati
 
 \subsection{Trabajo experimental}
 
-Se realizaron cuatro baterías experimentales de liofilización de ruibarbo (\textit{Rheum rhabarbarum} L.) entre diciembre de 2023 y enero de 2025:
+El trabajo experimental se concentró en ruibarbo (\textit{Rheum rhabarbarum} L.) y tuvo dos etapas: ensayos exploratorios (2023--2024) para poner a punto el método, y un diseño compilado (2024--2025) sobre el que se realizó el análisis estadístico.
 
-\begin{longtable}{p{1.5cm}p{2cm}p{2.5cm}p{2cm}p{5cm}}
+\textbf{Ensayos exploratorios}
+
+\begin{longtable}{p{1cm}p{2.5cm}p{2.5cm}p{2.7cm}p{4.7cm}}
 \toprule
-\textbf{Exp.} & \textbf{Fecha} & \textbf{Pretratamiento} & \textbf{Réplicas} & \textbf{Resultado principal} \\
+\textbf{Exp.} & \textbf{Fecha} & \textbf{Origen} & \textbf{Diseño} & \textbf{Resultado principal} \\
 \midrule
-Exp1 & Dic 2023 & FRESCO & 3 & Primera curva cinética; pérdida $\sim$94\,\pct{} BH \\
-Exp2 & May 2024 & FRESCO, CONG., ULTRACONG. & 9 & Primer diseño factorial 3$\times$3 \\
-Exp3 & Jul 2024 & FRESCO, CONG., ULTRACONG. & 9 & Serie más completa; plateau a 36\,h \\
-Exp4 & Ene 2025 & FRESCO, CONG., ULTRACONG. & 9 & Confirmación de tendencias \\
+Exp1 & 4 dic 2023 & Huerta doméstica (Río Grande) & 4 muestras, punto único & Humedad del ruibarbo fresco: 94,3--94,6\,\pct{} BH \\
+Exp2 & 20--24 may 2024 & Estancia Viamonte & 8 frascos, 6--90\,h & Primera curva de secado \\
+Exp3 & 28 oct--4 nov 2024 & Estancia Viamonte & 8 frascos, 12--96\,h & Protocolo con doble barquillo; meseta desde las 36\,h en una sola repetición \\
 \bottomrule
 \end{longtable}
 
-\textbf{Dataset total:} 261 observaciones (30 combinaciones pretratamiento\,$\times$\,tiempo, con 9 réplicas cada una).
+\textbf{Diseño compilado}
+
+Tres baterías (noviembre de 2024, enero de 2025 y febrero de 2025), cada una con 3 pretratamientos (fresco, congelado a $-18$\,°C y ultracongelado a $\leq -25$\,°C) $\times$ 3 repeticiones $\times$ 10 tiempos de muestreo (6--96\,h): 270 registros. Se excluyeron 9 por pérdida de datos por goteo (enero de 2025, congelado, a las 12, 36 y 48\,h), por lo que el análisis usa \textbf{261 observaciones válidas}; el pretratamiento congelado tiene $n = 6$ en esos tres tiempos.
 
 \textbf{Equipamiento utilizado:}
 \begin{itemize}[nosep]
     \item Liofilizador RIFICOR LT-8 (laboratorio UTN FRTDF, Río Grande)
     \item Balanza analítica OHAUS AR2140 (210\,g, 0{,}1\,mg)
-    \item Balanza portátil OHAUS CR (2200\,g, 1\,g) --- adquirida jun 2024
-    \item Termómetro digital Alla France $-50$ a $+70$\,°C --- adquirido jun 2024
+    \item Balanza portátil OHAUS CR (2200\,g, 1\,g) --- \porconf{adquirida jun 2024} (solicitud del 13/06/2024)
+    \item Termómetro digital Alla France $-50$ a $+70$\,°C --- \porconf{adquirido jun 2024} (solicitud del 13/06/2024)
     \item Selladora al vacío + bolsas/rollos gofrados Turbosaver
 \end{itemize}
 
 \textbf{Muestras:} Peciolos de ruibarbo cortados transversalmente ($\sim$1\,cm) provenientes de huerta doméstica (Río Grande) y Estancia Viamonte (30\,km de Río Grande). Dos ecotipos: invernadero (más turgente) y exterior (más blando).
 
 \subsection{Resultados principales}
+\label{sec:resultados}
 
-Los resultados experimentales completos se presentan en el preprint científico adjunto (\texttt{main.tex}). Se resumen a continuación:
+\noindent\fcolorbox{orange!70!black}{orange!6}{\parbox{\dimexpr\linewidth-2\fboxsep-2\fboxrule}{\small
+\textbf{Corrección en curso.} En la planilla de resultados, la fórmula de pérdida de peso resta el barquillo de aluminio de la masa inicial pero no de la masa final, que se registró con aluminio (269 de 270 filas). La pérdida queda subestimada en 1,1 puntos porcentuales en promedio (rango 0,1--2,4). Recalculada desde las masas, los tiempos de estabilización y todas las conclusiones de esta sección se mantienen; cambian las cifras en naranja (por ejemplo, la pérdida en la meseta pasa de 92,0--92,3\,\pct{} a 93,1--93,4\,\pct{}). La corrección se aplicará en el código de análisis cuando se confirme el protocolo de pesada \pend{Cornejo, Alfarano}.}}
+
+\vspace{0.6em}
+
+Los resultados detallados se presentan en el manuscrito científico en preparación (\texttt{main.tex}). En síntesis:
 
 \begin{enumerate}[nosep]
-    \item \textbf{Cinética de secado:} El modelo de Page describe adecuadamente la pérdida de peso ($R^2 = 0{,}89$--$0{,}92$). El pretratamiento ULTRACONGELADO mostró la cinética más rápida ($k = 0{,}1067$\,h$^{-n}$, $n = 0{,}8323$).
+    \item \textbf{Cinética de secado:} el modelo de Page ajusta bien las muestras precongeladas ($R^2$ = \porconf{0,911} y \porconf{0,924}) y moderadamente las frescas ($R^2$ = \porconf{0,764}). El fresco tiene la mayor velocidad inicial ($k$ = \porconf{0,256}\,h$^{-n}$, frente a \porconf{0,087} en congelado y \porconf{0,107} en ultracongelado).
 
-    \item \textbf{Tiempo óptimo:} Se alcanza pérdida de peso del 94\,\pct{} a las 36\,h con barquillo de aluminio. El plateau de la derivada numérica confirma estabilización:
-    \begin{itemize}[nosep]
-        \item FRESCO: 72\,h
-        \item CONGELADO: 48\,h
-        \item ULTRACONGELADO: 48\,h
-    \end{itemize}
+    \item \textbf{Tiempo de estabilización} (criterio $\Delta_{\mathrm{rel}} \leq 1$\,\pct{}): 48\,h para congelado y ultracongelado, 72\,h para fresco, con una pérdida de peso en la meseta de \porconf{92,0--92,3\,\pct{}}. El rango práctico recomendado es de 36--48\,h. El valor de 36\,h surgió del Exp3, con una sola repetición.
 
-    \item \textbf{Efecto del pretratamiento:} Significativo a las 24\,h (Kruskal-Wallis $p = 0{,}0004$), pero convergente a 36--48\,h ($p > 0{,}05$). Implicancia industrial: el congelamiento previo acelera las primeras fases pero no altera el resultado final.
+    \item \textbf{Efecto del pretratamiento:} a las 24\,h el fresco perdió más peso que los precongelados (Kruskal-Wallis $p$ = \porconf{0,0004}; Dunn con corrección de Bonferroni: fresco frente a congelado $p$ = \porconf{0,0007}, frente a ultracongelado $p$ = \porconf{0,006}). Desde las 36\,h los tres son estadísticamente equivalentes ($p > 0{,}18$). El precongelado no acelera el secado; aporta una cinética más predecible y el mismo resultado final.
 
-    \item \textbf{Reproducibilidad:} La ANOVA Tipo~II ($R^2 = 0{,}923$) mostró que el factor mes (bloque) no es significativo ($p = 0{,}1005$), confirmando que los resultados son reproducibles entre baterías experimentales.
+    \item \textbf{Reproducibilidad:} en el ANOVA Tipo~II ($R^2$ = \porconf{0,923}), el mes de la batería no fue significativo ($p$ = \porconf{0,10}). Los resultados son reproducibles entre baterías con distintos lotes de materia prima.
 
-    \item \textbf{Condiciones operacionales:} Temperatura del condensador $-36$ a $-41$\,°C; presión 0{,}94 a 2{,}432\,mmHg. El equipo no siempre alcanzó las especificaciones mínimas del manual.
+    \item \textbf{Condiciones operacionales:} en el diseño compilado, condensador entre $-41$ y $-35$\,°C y presión entre 1,116 y 2,432\,mmHg (registradas en 202 de 261 observaciones), sin efecto significativo sobre la pérdida de peso. En el Exp2 se registraron presiones desde 0,94\,mmHg. El equipo no siempre alcanzó las especificaciones del manual.
 \end{enumerate}
+
+\textbf{Alcance de los resultados.} Toda la evidencia se apoya en una variable, la pérdida de peso. Todavía no se midieron la humedad inicial de cada batería, la humedad residual del producto, la actividad de agua ni parámetros de calidad, y no hay registro fotográfico estandarizado de los productos finales. Estas mediciones completan el OE3 y son necesarias para publicar (ver §\ref{sec:pendientes}).
 
 \subsection{Matrices descartadas}
 
 \begin{itemize}[nosep]
-    \item \textbf{Salicornia (\textit{Sarcocornia magellanica}):} Descartada por dificultades de acceso a materia prima en cantidades suficientes y por la falta de protocolo previo de procesamiento. Se conserva la línea para un futuro proyecto.
-    \item \textbf{Erizo de mar (\textit{Loxechinus albus}, \textit{Pseudechinus magellanicus}):} Descartado por complejidad logística de obtención de gónadas frescas en condiciones controladas, restricciones de pesca y necesidad de protocolos de bioseguridad adicionales. Se recopiló documentación bibliográfica (ERIZOS v2--v4.pptx).
+    \item \textbf{Salicornia (\textit{Sarcocornia magellanica}):} descartada durante la ejecución por limitaciones diversas \pend{precisar motivos y fecha}. Se conserva como línea para un futuro proyecto.
+    \item \textbf{Erizo de mar (\textit{Loxechinus albus}, \textit{Pseudechinus magellanicus}):} descartado durante la ejecución por limitaciones diversas \pend{precisar motivos y fecha}. Se avanzó en la logística de muestras y se recopiló documentación bibliográfica.
 \end{itemize}
 
 % ============================================================================
@@ -263,12 +294,13 @@ Los resultados experimentales completos se presentan en el preprint científico 
 1 & ``Química Aplicada al Ambiente, los Alimentos y el Desarrollo Sostenible: Investigando la Liofilización en Tierra del Fuego'' (Flores, Mottola, Cornejo, Alfarano, Giamportone) & Artículo divulg. (La Lupa) & Redactado \\
 2 & ``Liofilización: Conservando el Futuro Alimentario de Tierra del Fuego'' & Artículo divulg. (La Lupa) & Redactado \\
 3 & Artículo breve La Lupa 2025 (Alfarano) & Artículo divulg. & En preparación \\
-4 & Preprint cinética de liofilización de ruibarbo (15\,pp, 7 tablas, 3 figuras) & Preprint científico & Completado \\
+4 & Manuscrito ``Cinética de liofilización de ruibarbo patagónico'' & Artículo científico & En preparación \\
 5 & Estudio de escalado y factibilidad (5 documentos) & Informe técnico & Completado \\
 6 & Business Model Canvas (Mottola) & Análisis de negocio & Completado \\
 7 & Guía de uso rápido del liofilizador v1 & Manual técnico & Completado \\
 8 & Notebook de análisis estadístico compilado (25 celdas, 6 figuras) & Análisis computac. & Completado \\
 9 & Dashboard integral del proyecto (Dash + SQLite, 4 pestañas) & Herramienta web & Completado \\
+10 & Sitio web del grupo con animación didáctica del proceso (\href{https://qa3ds.github.io/}{qa3ds.github.io}) & Divulgación & Publicado (2026) \\
 \bottomrule
 \end{longtable}
 
@@ -294,6 +326,7 @@ Oct 2024 & Capacitación uso del liofilizador (4\,h presencial) & Capacitación 
 
 \begin{itemize}[nosep]
     \item \textbf{GitHub:} Organización \href{https://github.com/QA3DS}{QA3DS}, repositorio \href{https://github.com/QA3DS/PID-Liofilizados}{PID-Liofilizados} (13 issues, 3 milestones, 12 labels), Project Board Kanban
+    \item \textbf{Sitio web:} \href{https://qa3ds.github.io/}{qa3ds.github.io}, con una versión de la animación para presentaciones
     \item \textbf{LinkedIn:} Página institucional del grupo QA3DS
     \item \textbf{ResearchGate:} Laboratorio QA3DS
 \end{itemize}
@@ -315,7 +348,8 @@ Oct 2024 & Capacitación uso del liofilizador (4\,h presencial) & Capacitación 
 % ============================================================================
 
 \begin{itemize}[nosep]
-    \item \textbf{Estancia Viamonte:} Convenio de colaboración activo desde 2024 para acceso a materias primas y entorno productivo real (ruibarbo, ajo negro, grosellas)
+    \item \textbf{Estancia Viamonte:} colaboración para el acceso a materia prima y a un entorno productivo real (ruibarbo, ajo negro, grosellas). Estado del convenio: \pend{¿firmado o en trámite?}
+    \item \textbf{Productora local de ruibarbo deshidratado (2026):} comparación entre el producto liofilizado y el secado tradicional. Se gestionó con el CIDCA (CONICET--UNLP) un panel de análisis químicos: vitamina C, polifenoles totales, capacidad antioxidante y antocianinas. Un cálculo energético preliminar indica que el liofilizado consume del orden de 84 veces más energía por kilogramo de agua removida que el secado tradicional, en parte por la escala del equipo de laboratorio. La ventaja del liofilizado a demostrar es de calidad del producto, no de eficiencia energética.
     \item \textbf{INTI:} Se identificó como referencia de transferencia tecnológica (modelo Trufas del Nuevo Mundo --- trufas liofilizadas exportadas a España y Francia)
     \item \textbf{En gestión:} contactos con INTA, ANMAT, SENASA, Secretaría Provincial de Ambiente
 \end{itemize}
@@ -324,7 +358,7 @@ Oct 2024 & Capacitación uso del liofilizador (4\,h presencial) & Capacitación 
 \section{Ejecución presupuestaria}
 % ============================================================================
 
-\subsection{Compras realizadas}
+\subsection{Compras y solicitudes}
 
 \begin{longtable}{p{5cm}p{2.5cm}p{2cm}p{3.5cm}}
 \toprule
@@ -332,8 +366,8 @@ Oct 2024 & Capacitación uso del liofilizador (4\,h presencial) & Capacitación 
 \midrule
 \multicolumn{4}{l}{\textit{Equipamiento (Ítem 4.3)}} \\
 \midrule
-Balanza portátil OHAUS CR & USD\,230 & Jun 2024 & Prov.: One Lab \\
-Termómetro Alla France $-50/+70$°C & USD\,44 & Jun 2024 & Prov.: One Lab \\
+Balanza portátil OHAUS CR & USD\,230\textsuperscript{†} & Jun 2024 & Prov.: One Lab \\
+Termómetro Alla France $-50/+70$°C & USD\,44\textsuperscript{†} & Jun 2024 & Prov.: One Lab \\
 \midrule
 \multicolumn{4}{l}{\textit{Insumos (Ítem 2)}} \\
 \midrule
@@ -343,23 +377,24 @@ Bolsas envasado al vacío (compra add.) & ---\textsuperscript{*} & Mar 2025 & No
 \midrule
 \multicolumn{4}{l}{\textit{Servicios y viáticos (Ítem 3)}} \\
 \midrule
-Reintegro viáticos dic 2024 & ---\textsuperscript{*} & Dic 2024 & Solicitud V. Cornejo \\
+Reintegro viáticos dic 2024 & ---\textsuperscript{*} & Dic 2024 & \pend{verificar titular} \\
 \midrule
 \multicolumn{4}{l}{\textit{Solicitudes en gestión}} \\
 \midrule
 Mesa antivibratoria (para OHAUS AR2140) & ---\textsuperscript{*} & Solicitada & Necesaria para calibración \\
 Parrillas/estantes para liofilizador & ---\textsuperscript{*} & Mar 2024 & Solicitada \\
-Selladora al vacío & ---\textsuperscript{*} & Solicitada & Prov.: Turbosaver \\
+Selladora al vacío & ---\textsuperscript{*} & \pend{¿adquirida?} & Figura en uso en §4 \\
 \bottomrule
 \end{longtable}
 
-{\footnotesize \textsuperscript{*} Monto no disponible en la documentación digital accesible. Consultar comprobantes físicos.}
+{\footnotesize \textsuperscript{*} Monto no disponible en la documentación digital accesible. Consultar comprobantes físicos.\\
+\textsuperscript{†} Monto del presupuesto de referencia presentado con la solicitud del 13/06/2024; verificar el monto ejecutado.}
 
 \textbf{Nota:} Existen cotizaciones documentadas (N° 56952, N° 49561, Presupuesto 73736, P-00004577) en los archivos del proyecto cuyo detalle de montos ejecutados requiere verificación con los comprobantes originales.
 
 \subsection{Crédito presupuestario disponible}
 
-En fecha 17 de marzo de 2026 se notificó la disponibilidad del crédito correspondiente al saldo al 31/12/2025:
+En fecha 17 de marzo de 2026 se notificó la disponibilidad del crédito correspondiente al saldo al 31/12/2025. \pend{El monto de insumos difiere entre documentos: \$\,100.577,54 (este informe) y \$\,100.557,54 (correo a la Secretaría, septiembre de 2026); verificar con la notificación}.
 
 \begin{table}[H]
 \centering
@@ -369,40 +404,28 @@ En fecha 17 de marzo de 2026 se notificó la disponibilidad del crédito corresp
 \toprule
 \textbf{Ítem} & \textbf{Concepto} & \textbf{Crédito (ARS)} \\
 \midrule
-2 & Insumos & \$\,100.577{,}54 \\
+2 & Insumos & \porconf{\$\,100.577{,}54} \\
 3 & Servicios / viáticos / honorarios & \$\,55.498{,}05 \\
 4.3 & Equipamiento & \$\,87.485{,}89 \\
 \midrule
-& \textbf{TOTAL} & \textbf{\$\,243.561{,}48} \\
+& \textbf{TOTAL} & \textbf{\porconf{\$\,243.561{,}48}} \\
 \bottomrule
 \end{tabular}
 \end{table}
 
-\subsection{Propuesta estratégica de inversión del saldo}
+\subsection{Destino previsto del saldo (septiembre de 2026)}
 
-El saldo disponible de ARS\,243.561{,}48 puede asignarse según el siguiente análisis de prioridades:
-
-\begin{longtable}{p{1.5cm}p{5cm}p{2.5cm}p{4.5cm}}
+\begin{longtable}{p{1cm}p{5.8cm}p{2.5cm}p{4.3cm}}
 \toprule
-\textbf{Ítem} & \textbf{Propuesta} & \textbf{Monto est.} & \textbf{Justificación} \\
+\textbf{Ítem} & \textbf{Destino} & \textbf{Monto est.} & \textbf{Para qué} \\
 \midrule
-\multicolumn{4}{l}{\textit{Prioridad ALTA --- Completar experimentos en curso}} \\
-\midrule
-2 & Insumos para Exp5+ (ruibarbo fresco, envases, sales para aw, reactivos) & ARS\,$\sim$60.000 & Necesarios para completar el ciclo experimental con análisis de actividad de agua \\
-2 & Bolsas y rollos gofrados adicionales & ARS\,$\sim$25.000 & Stock de envasado para experimentos y muestras de conservación \\
-3 & Análisis externos: IIByT-CONICET (DVS), CIATI (microbiología, rotulado nutricional) & ARS\,$\sim$55.000 & Dato crítico para OE5 y para el artículo científico D2 \\
-\midrule
-\multicolumn{4}{l}{\textit{Prioridad MEDIA --- Mejora de infraestructura}} \\
-\midrule
-4.3 & Mesa antivibratoria para balanza OHAUS AR2140 & ARS\,$\sim$87.000 & Solicitada y pendiente; mejora la precisión analítica \\
-\midrule
-\multicolumn{4}{l}{\textit{Prioridad BAJA --- Difusión}} \\
-\midrule
-3 & Viáticos para presentación en jornadas/congreso & ARS\, residual & Presentar resultados en evento nacional \\
+3 & Panel de análisis químicos en el CIDCA (vitamina C, polifenoles, capacidad antioxidante, antocianinas) & \$\,224.750 por muestra (US\$\,145) & OE3 y comparación con el secado tradicional \\
+2 & Insumos para una batería de caracterización: sales saturadas para actividad de agua, envases, reactivos & \pend{estimar} & Humedad inicial y residual, actividad de agua, rehidratación \\
+3 & Apoyo adicional solicitado a la Secretaría para completar el diseño mínimo de tres muestras & \porconf{\$\,430.709} & Liofilizado, secado tradicional y fresco de referencia \\
 \bottomrule
 \end{longtable}
 
-\textbf{Nota:} Dada la inflación en Argentina, se recomienda ejecutar las compras con prontitud para preservar el poder adquisitivo de los fondos asignados.
+\textbf{Nota:} el saldo disponible alcanza para una sola muestra del panel del CIDCA, que no permite comparar. Los análisis se facturan en pesos a la cotización del día, por lo que el monto tiene riesgo cambiario.
 
 % ============================================================================
 \section{Estado de entregables comprometidos}
@@ -418,14 +441,14 @@ A1 & Marco normativo de calidad & \checkmark & 100\,\pct{} & Completado abr--may
 A2 & Protocolo liofilización --- Ruibarbo & En proc. & $\sim$75\,\pct{} & Protocolo funcional; falta formalización final \\
 A3 & Protocolo liofilización --- Salicornia & Canc. & --- & Matriz descartada \\
 A4 & Protocolo liofilización --- Erizo & Canc. & --- & Matriz descartada \\
-A5 & Resultados experimentales --- Ruibarbo & En proc. & $\sim$75\,\pct{} & 4 experimentos, 261 obs, análisis estadístico completo; faltan bioquímicos \\
+A5 & Resultados experimentales --- Ruibarbo & En proc. & $\sim$75\,\pct{} & 3 baterías compiladas, 261 obs.; corregir fórmula; faltan humedad residual, actividad de agua y análisis químicos \\
 A6 & Resultados experimentales --- Animal & Canc. & --- & Matriz descartada \\
 \midrule
 \multicolumn{5}{l}{\textit{Grupo B --- Transferencia al medio}} \\
 \midrule
 B1 & Manual técnico-económico & En proc. & $\sim$65\,\pct{} & Cap.~1--6 + Anexos A, C, D redactados; falta Anexo~B y revisión \\
 B2 & Informe final del PID & Pend. & 0\,\pct{} & \textbf{Pendiente.} Este documento contribuye a B2 \\
-B3 & Vinculación y transferencia & En proc. & $\sim$70\,\pct{} & Convenio Viamonte, presente en eventos \\
+B3 & Vinculación y transferencia & En proc. & $\sim$70\,\pct{} & Viamonte, productora local (2026), eventos, sitio web \\
 \midrule
 \multicolumn{5}{l}{\textit{Grupo C --- Formación y difusión}} \\
 \midrule
@@ -436,14 +459,14 @@ C3 & Presentaciones en jornadas & En proc. & $\sim$60\,\pct{} & Jornadas CyT 202
 \multicolumn{5}{l}{\textit{Grupo D --- Emergentes}} \\
 \midrule
 D1 & Estudio de escalado & \checkmark & 100\,\pct{} & 5 documentos técnico-económicos \\
-D2 & Artículo científico indexado & En proc. & $\sim$30\,\pct{} & Preprint completado; falta selec. revista y envío \\
+D2 & Artículo científico indexado & En proc. & $\sim$30\,\pct{} & Faltan datos fisicoquímicos, discusión con la literatura y revista (Q3, costo viable) \\
 D3 & Propuesta nuevo PID 2026 & Pend. & 0\,\pct{} & Objetivo del grupo: 1 PID/año \\
 D4 & Dashboard integral & \checkmark & 100\,\pct{} & ETL + Dash, 4 pestañas, 12+ gráficos \\
-D5 & Preprint científico LaTeX & \checkmark & 100\,\pct{} & 15 pp, 14 refs verificadas \\
+D5 & Manuscrito científico (borrador LaTeX) & En proc. & $\sim$50\,\pct{} & Borrador técnico; requiere corrección de cifras, MR en base seca y reescritura por los autores \\
 \bottomrule
 \end{longtable}
 
-\textbf{Resumen:} De los 10 entregables activos (excluyendo 3 cancelados), 5 están completados (100\,\pct{}), 4 en proceso avanzado (60--80\,\pct{}) y 1 pendiente (B2, que es este informe).
+\textbf{Resumen:} De los 14 entregables activos (excluidos los 3 cancelados), 4 están completados, 8 en proceso y 2 pendientes (B2, al que contribuye este documento, y D3).
 
 % ============================================================================
 \section{Alianzas estratégicas}
@@ -453,12 +476,15 @@ D5 & Preprint científico LaTeX & \checkmark & 100\,\pct{} & 15 pp, 14 refs veri
 \toprule
 \textbf{Entidad} & \textbf{Estado} & \textbf{Descripción} \\
 \midrule
-Estancia Viamonte & Activo & Convenio de colaboración para materia prima (ruibarbo, ajo negro, grosellas) y entorno productivo. A 30\,km de Río Grande. \\
+Estancia Viamonte & Colaboración \pend{convenio} & Materia prima (ruibarbo, ajo negro, grosellas) y entorno productivo. A 30\,km de Río Grande. \\
+Productora local & Activa (2026) & Comparación entre liofilizado y secado tradicional \\
+CIDCA (CONICET--UNLP) & En gestión & Panel de análisis químicos \\
+CADIC (CONICET) & Antecedente & Capacitación inicial en el liofilizador (nov 2022) \\
 INTI & Referencia & Modelo de transferencia tecnológica (Trufas del Nuevo Mundo) \\
 INTA & En gestión & Potencial colaboración técnica \\
-IIByT-CONICET (UNC) & Puntual & Análisis DVS (sorption isotherms) \\
-CIATI (Alto Valle) & Puntual & Análisis microbiológico y rotulado nutricional \\
-ICTA (UNC) & Puntual & Asistencia técnica para evaluación sensorial \\
+IIByT-CONICET (UNC) & Previsto & Isotermas de sorción por DVS \\
+CIATI (Alto Valle) & Previsto & Análisis microbiológico y rotulado nutricional \\
+ICTA (UNC) & Previsto & Asistencia técnica para evaluación sensorial \\
 \bottomrule
 \end{longtable}
 
@@ -473,11 +499,13 @@ ICTA (UNC) & Puntual & Asistencia técnica para evaluación sensorial \\
 
     \item \textbf{Limitaciones del equipamiento:} El liofilizador RIFICOR LT-8 no siempre alcanzó las especificaciones del manual (temperatura y presión reales difirieron en algunos ciclos). La falta de mesa antivibratoria limita la precisión de las mediciones analíticas.
 
-    \item \textbf{Rotación de alumnos:} 9 de los 16 alumnos egresaron o se retiraron durante el proyecto, lo que generó desafíos en la continuidad del trabajo experimental.
+    \item \textbf{Rotación de alumnos:} \porconf{9 de los 16} alumnos egresaron o se retiraron durante el proyecto, lo que generó desafíos en la continuidad del trabajo experimental.
 
     \item \textbf{Distancia geográfica:} El equipo dividido entre Ushuaia y Río Grande añade complejidad logística. El laboratorio experimental está en Río Grande.
 
     \item \textbf{Contexto económico:} La inflación argentina dificulta la planificación presupuestaria y reduce el poder adquisitivo de los fondos asignados entre el momento de la aprobación y la ejecución.
+
+    \item \textbf{Calidad de los datos:} la revisión de 2026 detectó un error sistemático en la fórmula de pérdida de peso de la planilla, arrastrado a todos los productos de análisis. Antes se habían corregido errores de fecha, de tipeo y de codificación de muestras.
 
     \item \textbf{Acceso a análisis externos:} Los laboratorios de análisis bioquímico y microbiológico se encuentran fuera de la provincia, lo que encarece y enlentece la obtención de resultados complementarios.
 \end{enumerate}
@@ -490,26 +518,30 @@ ICTA (UNC) & Puntual & Asistencia técnica para evaluación sensorial \\
     \item El convenio con un productor real (Estancia Viamonte) resultó clave para el acceso sostenido a materia prima de calidad.
     \item La formación de alumnos en análisis de datos y estadística tiene impacto formativo que trasciende el proyecto.
     \item La generación de un estudio de escalado desde etapas tempranas orientó la discusión hacia la aplicabilidad real de los resultados.
+    \item Las variables derivadas (como la pérdida de peso) deben calcularse en el código de análisis a partir de las mediciones crudas, no en la planilla de registro: así un error de fórmula queda a la vista y se corrige en un solo lugar.
+    \item Medir una sola variable limita lo que se puede concluir. Conviene planificar desde el inicio la caracterización del producto (humedad residual, actividad de agua, parámetros de calidad) junto con la cinética.
 \end{enumerate}
 
 % ============================================================================
 \section{Actividades pendientes y compromisos abiertos}
+\label{sec:pendientes}
 % ============================================================================
 
-\begin{longtable}{p{0.5cm}p{5.5cm}p{2cm}p{5.5cm}}
+\begin{longtable}{p{0.5cm}p{7cm}p{1.8cm}p{4cm}}
 \toprule
 \textbf{\#} & \textbf{Actividad} & \textbf{Prioridad} & \textbf{Plazo estimado} \\
 \midrule
-1 & Formalizar B2 (informe final PIDPP) a partir de este documento & Crítica & Inmediato \\
-2 & Completar B1 (Anexo B --- datos terceros, revisión docente) & Alta & 1--2 meses \\
-3 & Enviar artículos La Lupa redactados para evaluación & Alta & 1 mes \\
-4 & Ejecutar crédito presupuestario 2025 (ARS\,243.561) & Alta & Inmediato (preservar valor) \\
-5 & Análisis bioquímicos externos (DVS, microbiología, rotulado) & Alta & 2--3 meses \\
-6 & Seleccionar revista y enviar preprint como artículo (D2) & Media & 2--3 meses \\
-7 & Completar análisis de actividad de agua (aw) & Media & 2--4 meses \\
-8 & Formular propuesta de nuevo PID (D3) & Media & 3--6 meses \\
-9 & Presentar en congreso/jornadas con resultados completos & Baja & 6 meses \\
-10 & Avanzar con propuesta de planta piloto (Fase 1 del escalado) & Baja & 6--12 meses \\
+1 & Cerrar las confirmaciones marcadas en rojo en este documento (protocolo de pesada, crédito, fin de la prórroga, plantel, convenio, motivos de descarte) & Crítica & Inmediato \\
+2 & Corregir el cálculo de pérdida de peso en el código de análisis y regenerar resultados, figuras y documentos & Crítica & Tras la confirmación del protocolo de pesada \\
+3 & Batería de caracterización del producto en la condición recomendada (congelado, 48\,h): humedad inicial y residual, actividad de agua, capacidad de rehidratación y contracción & Alta & 1--2 meses \\
+4 & Registro fotográfico estandarizado de los productos de las tres condiciones (mismo fondo, luz y escala) con descripción visual & Alta & Junto con la actividad 3 \\
+5 & Análisis químicos en el CIDCA y comparación con el secado tradicional & Alta & Según fondos \\
+6 & Completar B1 (Anexo B y revisión docente) & Alta & 1--2 meses \\
+7 & Enviar los artículos de La Lupa redactados & Media & 1 mes \\
+8 & Manuscrito científico: discusión comparada con estudios similares, reescritura por los autores y selección de una revista de costo viable (Q3 o sin cargo de publicación) & Media & 3--4 meses \\
+9 & Formalizar B2 (informe final PIDPP) a partir de este documento & Crítica & Al cierre de la prórroga \\
+10 & Formular propuesta de nuevo PID (D3) & Media & 3--6 meses \\
+11 & Avanzar con la propuesta de planta piloto (Fase 1 del escalado) & Baja & 6--12 meses \\
 \bottomrule
 \end{longtable}
 
@@ -517,13 +549,13 @@ ICTA (UNC) & Puntual & Asistencia técnica para evaluación sensorial \\
 \section{Conclusiones}
 % ============================================================================
 
-El PID PP9884 ha producido resultados significativos en la caracterización del proceso de liofilización aplicado a ruibarbo patagónico, con un dataset robusto de 261 observaciones, análisis estadístico completo y un preprint científico listo para sometimiento a revisión por pares. Si bien el alcance original se redujo de tres matrices a una, la profundidad alcanzada en la matriz de ruibarbo supera lo inicialmente planificado en términos de análisis de datos.
+El PID PP9884 caracterizó la cinética de liofilización del ruibarbo patagónico con un diseño de tres baterías, 261 observaciones válidas y un análisis estadístico reproducible. El proceso se estabiliza a las 48\,h con precongelado (72\,h en fresco), los tres pretratamientos dan el mismo resultado a partir de las 36\,h y los resultados se repiten entre baterías. El alcance original se redujo de tres matrices a una.
 
-El proyecto ha cumplido satisfactoriamente con los objetivos de consolidación del grupo QA3DS, formación de recursos humanos (16 alumnos, 6 becados), generación de know-how sobre liofilización y vinculación con el sector productivo regional.
+La revisión de septiembre de 2026 detectó un error sistemático en el cálculo de la pérdida de peso. Su corrección modifica las cifras absolutas pero no estas conclusiones.
 
-Los principales compromisos abiertos son: la formalización del informe final (B2), el envío del artículo científico a revista indexada, y la ejecución del crédito presupuestario recientemente notificado.
+Para cumplir el OE3 y para publicar, el trabajo necesita sumar la caracterización del producto (humedad residual, actividad de agua, rehidratación, análisis químicos y registro fotográfico) y una discusión comparada con estudios similares.
 
-Se recomienda que las actividades pendientes se integren en la propuesta del próximo PID del grupo QA3DS, asegurando la continuidad de las líneas de investigación iniciadas.
+El proyecto contribuyó a consolidar el grupo QA3DS, a formar recursos humanos (\porconf{17 alumnos}, 6 becas gestionadas) y a vincular al grupo con el sector productivo regional. Se recomienda integrar las actividades pendientes en la propuesta del próximo PID del grupo.
 
 \vspace{1cm}
 
@@ -531,6 +563,12 @@ Se recomienda que las actividades pendientes se integren en la propuesta del pr�
 \textbf{Ing. Pesq. Ariel Luján Giamportone}\\
 Director --- PID PP9884\\
 Grupo QA3DS --- UTN FRTDF\\
-Marzo 2026
+Septiembre 2026
+
+\vspace{1cm}
+
+\noindent\rule{6cm}{0.5pt}\\
+\textbf{Dr. Tomás Chalde}\\
+Co-director --- PID PP9884
 
 \end{document}
